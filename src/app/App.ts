@@ -160,7 +160,7 @@ export class App {
         }
         ***********************************/
         //ボタンリスナー登録
-          /**********
+          /************
         const expansionButton = document.getElementById("expansion") as HTMLElement;
         expansionButton.addEventListener("click", (e: MouseEvent) => {
             e.preventDefault();
