@@ -1,4 +1,4 @@
-//test
+//test LYU SIQI
 import { MyCanvas } from "./MyCanvas";
 import * as PIXILive2D from "pixi-live2d-display";
 import axios from "axios";
