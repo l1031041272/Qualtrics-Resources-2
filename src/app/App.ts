@@ -160,6 +160,7 @@ export class App {
         }
         ***********************************/
         //ボタンリスナー登録
+          /**********
         const expansionButton = document.getElementById("expansion") as HTMLElement;
         expansionButton.addEventListener("click", (e: MouseEvent) => {
             e.preventDefault();
@@ -175,7 +176,7 @@ export class App {
             const box = this.pixiCanvas.hiyori.getContainer();
             box.scale.set(box.scale.x * 0.9, box.scale.y * 0.9);
         });
-
+        ***************/
         const startMotion = document.getElementById("startMotion") as HTMLElement;
         startMotion.addEventListener("click", (e: MouseEvent) => {
             this.pixiCanvas?.hiyori.setExpression(0)//追加
