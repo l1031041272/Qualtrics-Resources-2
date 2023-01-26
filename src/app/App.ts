@@ -70,7 +70,7 @@ export class App {
         this.pixiCanvas.initialize();
 
         //
-
+        /****************************************
         //音声のセレクトボックス作成
         const selectBoxVoice = document.getElementById("selectVoice") as HTMLSelectElement;
         const voicevoxes = [
@@ -96,6 +96,7 @@ export class App {
             "九州そら　ささやき",
         ];
         //VOICECOX
+
         if (this.serverConnect === true) {
             for (let i: number = 0; i < voicevoxes.length; i++) {
                 let select = document.createElement("option");
@@ -106,6 +107,7 @@ export class App {
                 selectBoxVoice.appendChild(select);
             }
         }
+
         //WEB SPEECH API
         let voices: SpeechSynthesisVoice[];
         const intervalID = window.setInterval(() => {
@@ -123,7 +125,7 @@ export class App {
                 }
             }
         }, 1);
-
+         ****************************************/
         //設定ファイルを取得
         const response = await axios.get(this.modelPath).catch(() => {
             throw new Error(`${this.modelPath}を取得できませんでした`);
@@ -194,7 +196,7 @@ export class App {
             this.pixiCanvas?.hiyori.setExpression(selectBoxExpression.value);
             //this.pixiCanvas?.hiyori.setExpression(0)
         });
- *****************************/
+
         const startSpeak = document.getElementById("speakStart") as HTMLElement;
         startSpeak.addEventListener("click", (e: MouseEvent) => {
             e.preventDefault();
@@ -254,7 +256,8 @@ export class App {
             //建設業大手の腹黒(はらぐろ)建設が埼玉県内の土地の売買などをめぐって法人税数千万円を脱税した疑いが強まり、東京地検 特捜部などはきょう、群馬県高崎市の本社などを一斉に家宅捜索しました。
             //早口言葉は、言いにくい言葉を通常より早く喋り、うまく言うことができるかを競う言葉遊び。また、それに用いる語句や文章。その多くは音節が舌を動かしづらい順序に並んでいて、文章の意味が脳で捉えにくいものになっている。 アナウンサーや俳優など、人前で話す職業に従事する人が滑舌を鍛える発声トレーニングに用いることもある。
             //あいうえお。かきくけこ。
-        });
+        }
+        ); *****************************/
 
         //const voiceStop = document.getElementById("voiceStop") as HTMLElement;
         // voiceStop.addEventListener("click", (e: MouseEvent) => {
