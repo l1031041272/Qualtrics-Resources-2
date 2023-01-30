@@ -181,7 +181,7 @@ export class App {
         ***************/
         const startMotion = document.getElementById("startMotion") as HTMLElement;
         startMotion.addEventListener("click", (e: MouseEvent) => {
-            this.pixiCanvas?.hiyori.setExpression(0)//追加
+            this.pixiCanvas?.hiyori.setExpression(12)//追加
             e.preventDefault();
             if (this.pixiCanvas === null) return;
             this.pixiCanvas.hiyori.forceMotion("All", selectBoxMotion.selectedIndex);
