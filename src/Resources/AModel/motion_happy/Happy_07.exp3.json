@@ -1,0 +1,45 @@
+{
+	"Type": "Live2D Expression",
+	"Parameters": [
+		{
+			"Id": "ParamNeutral",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamHappy",
+			"Value": 1,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamCheek_Happy",
+			"Value": 0.7,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamEyeLOpen_Happy",
+			"Value": 0.7,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamEyeROpen_Happy",
+			"Value": 0.7,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamBrowL_Happy",
+			"Value": 0.7,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamBrowR_Happy",
+			"Value": 0.7,
+			"Blend": "Add"
+		},
+		{
+			"Id": "ParamMouth_Happy",
+			"Value": 0.7,
+			"Blend": "Add"
+		}
+	]
+}
