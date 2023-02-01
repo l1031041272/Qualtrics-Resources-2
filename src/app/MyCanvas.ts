@@ -49,8 +49,8 @@ export class MyCanvas {
         //アプリ作成
         //オプション　https://pixijs.download/release/docs/PIXI.Application.html
         const pixiOptions: IApplicationOptions = {
-            width: 1000,//1000-->1500 ,   2000->3000
-            height: 1000,
+            width: 500,//1000-->1500 ,   2000->3000
+            height: 500,
 
 
 
@@ -102,8 +102,8 @@ export class MyCanvas {
         const hiyoriModel = this.hiyori.getContainer(); //ひよりを格納しているPIXI.Containerを取得する。
 
         hiyoriModel.pivot.set(this.hiyori.getWidth() / 2, this.hiyori.getHeight() / 2);
-        hiyoriModel.x = 500;
-        hiyoriModel.y = 500;
+        hiyoriModel.x = 250;
+        hiyoriModel.y = 250;
         //hiyoriModel.angle = 45;
         //hiyoriModel.scale.set(1.25, 1.25);
         // const dai = new PIXI.Graphics();
