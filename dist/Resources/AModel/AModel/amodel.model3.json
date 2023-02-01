@@ -303,6 +303,10 @@
 			{
 				"Name": "Anger_09_close",
 				"File": "../expression/Anger_09_close.exp3.json"
+			},
+			{
+				"Name": "normal1",
+				"File": "../../AModel/expression/Happy_03.exp3.json"
 			}
 		],
 		"Motions": {

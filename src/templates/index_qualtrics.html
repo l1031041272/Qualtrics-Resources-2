@@ -1,0 +1,238 @@
+<meta charset="UTF-8" />
+<style type="text/css">#dialog {
+    width: 370px;
+    margin: auto;
+    /* margin-top: 40vh;
+    padding: 30px 20px; */
+    display: none;
+    text-align: center;
+    border: 6px solid rgb(192, 28, 28);
+    box-shadow: 2px 2px 4px #888;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    z-index: 40;
+}
+
+#all {
+    width:auto;
+    position:absolute;
+    /* height:auto; */
+    /* background:silver; */
+}
+
+
+#image01{
+    display: block;
+    height:50%;
+    width:50%;
+    margin: auto;
+}
+
+#task{
+    display:flex;
+    align-items: flex-end;
+}
+
+.main_board{
+    position: relative;
+}
+
+#selection{
+    z-index: 40;
+    position: relative;
+}
+
+#select {
+    color: #000;
+    border-bottom: 5px solid;
+}
+
+#select:hover {
+    margin-top: 3px;
+    color: #000;
+    border-bottom: 2px solid;
+}
+#table_line{
+    position: absolute;
+    text-align: center;
+}
+
+
+/* スライダー */
+#slider_div{
+    position: absolute;
+    z-index: 20;
+}
+
+.slider_zone{
+    position: absolute;
+    left:0px;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.slider{
+    width:100px;
+    z-index:500;
+}
+
+
+
+.my_item {
+    width: 100px;
+    height: 100px;
+}
+
+
+.op_item {
+    width: 75px;
+    height: 75px;
+}
+
+
+#suggestion {
+    cursor: pointer;
+    width:100px;
+    z-index: 40;
+
+    display: flex;
+    align-items: flex-end;
+
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+}
+
+
+#suggestion img{
+    z-index: 60;
+    position: relative;
+}
+
+#suggestion:hover img{
+    box-shadow: 0px 0px 10px 2px #F9DB57;
+}
+
+#myCanvas{
+    height:500px;
+    display: flex;
+}
+
+#point_table{
+    font-size: 20px;
+    text-align: center;
+    width: 480px;
+}
+.total_point{
+    color: red;
+}
+
+</style>
+
+
+
+<div id="all">
+    <div id="intro">
+        <div>スライダーバーを操作してお互いが納得できるアイテムの配分を探索し、翔太に提案してください。</div>
+
+        <div><strong><font color="red">翔太に提案できるチャンスは一回のみです。注意して考えてください。</font></strong></div>
+        <input name="F_EMO" type="hidden" value="${e://Field/F_emo}" />
+        <input name="F_BLI" type="hidden" value="${e://Field/F_bli}" />
+        <input name="Limit" type="hidden" id="Limit" value="${e://Field/Limit}" />
+        <input name="Array" type="hidden" value="${e://Field/array}" />
+        <input name="slider1_init" type="hidden" value="${e://Field/slider1}" />
+        <input name="slider2_init" type="hidden" value="${e://Field/slider2}" />
+        <input name="slider3_init" type="hidden" value="${e://Field/slider3}" />
+        <input name="slider4_init" type="hidden" value="${e://Field/slider4}" />
+        <input name="item1" type="hidden" value="${e://Field/participant_preference_1st}" />
+        <input name="item2" type="hidden" value="${e://Field/participant_preference_2nd}" />
+        <input name="item3" type="hidden" value="${e://Field/participant_preference_3rd}" />
+        <input name="item4" type="hidden" value="${e://Field/participant_preference_4th}" />
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div id="task">
+
+        <div class="main_board">
+
+            <div class="container" align="center">
+                <div class="row m-2">
+                    <canvas id="myCanvas" class="border border-5 rounded-3 border-info"></canvas>
+                </div>
+            </div>
+
+
+
+
+            <div id="table">
+                <div  align="center" id="table_line"></div>
+                <div align="center" id="slider_div"></div>
+            </div>
+
+        </div>
+
+
+
+        <div id="suggestion">
+            <img id="suggestion_button"  src="https://rc1userv5pwvgnvtxbwj.au1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_37see1hsKpzpuAK">
+        </div>
+
+        <div id="point_table_div">
+            <table  border="1" style="border-collapse: collapse" id="point_table">
+                <tr>
+                    <th></th>
+                    <th><div id="point_table_item1" align="center"></div></th>
+                    <th><div id="point_table_item2" align="center"></div></th>
+                    <th><div id="point_table_item3" align="center"></div></th>
+                    <th><div id="point_table_item4" align="center"></div></th>
+                    <th><div align="center">合計</div></th>
+                </tr>
+                <tr>
+                    <td>翔太の点数</td>
+                    <td id="agent_item1_point">×点</td>
+                    <td id="agent_item2_point">×点</td>
+                    <td id="agent_item3_point">×点</td>
+                    <td id="agent_item4_point">×点</td>
+                    <td id="agent_total_point" class="total_point">点</td>
+                </tr>
+                <tr>
+                    <td>あなたの点数</td>
+                    <td id="human_item1_point">×点</td>
+                    <td id="human_item2_point">×点</td>
+                    <td id="human_item3_point">×点</td>
+                    <td id="human_item4_point">×点</td>
+                    <td id="human_total_point" class="total_point">点</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+    <div class="suggest">
+        <div id="dialog">
+            <p>この配分を翔太に提案した後、<br />
+                翔太が合意するかを判断します。</p>
+            &nbsp;
+
+            <p>※提案できるのはこの一回のみです。</p>
+
+            <div id="last_check">&nbsp;</div>
+            <button id="yes">提案する</button><button id="cancel">キャンセル</button></div>
+
+    </div>

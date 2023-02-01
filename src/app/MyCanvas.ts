@@ -51,6 +51,9 @@ export class MyCanvas {
         const pixiOptions: IApplicationOptions = {
             width: 1000,//1000-->1500 ,   2000->3000
             height: 1000,
+
+
+
             view: document.getElementById("myCanvas") as HTMLCanvasElement,
             backgroundColor: debug === true ? 0x000099 : void 0,
             resolution: window.devicePixelRatio || 1,
