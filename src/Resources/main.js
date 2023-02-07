@@ -54,7 +54,7 @@ window.addEventListener("beforeunload",()=>{
 });
 function setExpression2(){
     var button = document.getElementById("setExpression2");
-    button.onclick = () =>{indexLibrary.App_set_point(0)}
+    button.onclick = () =>{indexLibrary.App_set_point(1)}
 }
 function  initExpression() {
     indexLibrary.App_set_point(0)

@@ -284,6 +284,26 @@ export class App {
     };
 
     //3Dテーブルとのマージ分
+    change_face = (num: number) => {
+        switch (num){
+            case 0:
+                this.pixiCanvas?.hiyori.setExpression("Anger_06_close");
+                break;
+            case 1:
+                this.pixiCanvas?.hiyori.setExpression("Anger_08_close");
+                break;
+            case 2:
+                this.pixiCanvas?.hiyori.setExpression("Happy_01");
+                break;
+            case 3:
+                this.pixiCanvas?.hiyori.setExpression("Happy_02");
+                break;
+            case 4:
+                this.pixiCanvas?.hiyori.setExpression("Happy_03");
+                break;
+        }
+    };
+    /*******************************************************************
     change_face = (point: number, limit: number) => {
         var item1_number = 7; //
         var item2_number = 5; //
@@ -327,6 +347,7 @@ export class App {
         }
         console.log("point",point,"limit",limit,"num",num,"exp_array_joy.length-1",exp_array_joy.length-1,"exp_ind",exp_ind)
     };
+     *******************************************************************/
     reset_face = () => {
         console.log("233")
         this.pixiCanvas?.hiyori.setExpression("Happy_01");
