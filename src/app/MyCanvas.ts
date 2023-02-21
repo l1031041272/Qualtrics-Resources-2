@@ -149,14 +149,18 @@ export class MyCanvas {
             this.hiyori.idleGroup = "Idle";
             console.log("口パク、または発話中断");
         });
+
         //モデルのアップデート処理時に実行される。
         this.hiyori.onModelUpdate(() => {
+            //console.log("isbox:");
             //console.log(this.hiyori.isBoxOn);
             //マウスを見るかの調整
             if (this.hiyori.isBoxOn === false) {
                 this.hiyori.mouseLooking = false;
+                //console.log("false:");
             } else {
                 this.hiyori.mouseLooking = true;
+                //console.log("true:");
             }
 
             //モデルの当たり判定が発生しているとき　buttonmode = true
@@ -175,6 +179,8 @@ export class MyCanvas {
             //console.log(this.hiyori.isSpeaking, this.hiyori.isVoicing);
             //console.log(this.hiyori.motionState);
         });
+
+
         //話し終わったときの処理
         this.hiyori.onFinishSpeak(() => {
             this.hiyori.idleGroup = "Idle";

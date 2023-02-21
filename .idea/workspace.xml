@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="增加了四个奇怪的表情">
+      <change afterPath="$PROJECT_DIR$/src/app/qualtrics_copy___task1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/IndexLibrary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/CustomModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/CustomModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/MyCanvas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MyCanvas.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/qualtrics_copy___Prefer_hiyori_emotionless.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/qualtrics_copy___Prefer_hiyori_emotionless.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/qualtrics_copy___Prefer_hiyori_text.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/qualtrics_copy___Prefer_hiyori_text.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Klb8IYZWdylMRr9RgCkJskWnml" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "F:/Test_file/js/test2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "ts.external.directory.path": "F:\\Test_file\\js\\test3\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Test_file\js\test3\src\Resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/test3/src/templates/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="IndexLibrary.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/dist/js/IndexLibrary.js" working-dir="$PROJECT_DIR$/dist/js">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="Node.js.IndexLibrary.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Intelligence\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="" />
+      <created>1674551955158</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674551955158</updated>
+      <workItem from="1674551956213" duration="12504000" />
+      <workItem from="1674624517671" duration="14320000" />
+      <workItem from="1674640973026" duration="5154000" />
+      <workItem from="1674707023857" duration="65664000" />
+      <workItem from="1676254532169" duration="14503000" />
+    </task>
+    <task id="LOCAL-00001" summary="第一次上传">
+      <created>1674641570505</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674641570505</updated>
+    </task>
+    <task id="LOCAL-00002" summary="第一次上传">
+      <created>1674641815977</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674641815977</updated>
+    </task>
+    <task id="LOCAL-00003" summary="只剩下动作选择栏和按钮">
+      <created>1674704097896</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674704097896</updated>
+    </task>
+    <task id="LOCAL-00004" summary="只剩下动作选择栏和按钮">
+      <created>1674705452741</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674705452741</updated>
+    </task>
+    <task id="LOCAL-00005" summary="只剩下动作选择栏和按钮">
+      <created>1674705519970</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1674705519970</updated>
+    </task>
+    <task id="LOCAL-00006" summary="真·只剩下动作选择栏和按钮">
+      <created>1674707058119</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674707058119</updated>
+    </task>
+    <task id="LOCAL-00007" summary="添加翔太文件夹，功能未添加。">
+      <created>1675046800843</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675046800843</updated>
+    </task>
+    <task id="LOCAL-00008" summary="添加翔太文件夹，功能未添加。">
+      <created>1675052831110</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675052831110</updated>
+    </task>
+    <task id="LOCAL-00009" summary="添加翔太文件夹，功能未添加。">
+      <created>1675053007618</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675053007618</updated>
+    </task>
+    <task id="LOCAL-00010" summary="添加翔太文件夹，功能未添加。">
+      <created>1675053796190</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1675053796190</updated>
+    </task>
+    <task id="LOCAL-00011" summary="包含翔太初始表情（不是面瘫了。我哭死）">
+      <created>1675242618449</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675242618449</updated>
+    </task>
+    <task id="LOCAL-00012" summary="放大了翔太的模型，并调整了模型产生的坐标250，250（孩子要饿死了）">
+      <created>1675243432634</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675243432634</updated>
+    </task>
+    <task id="LOCAL-00013" summary="增加了四个奇怪的表情">
+      <created>1675762804437</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675762804437</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第一次上传" />
+    <MESSAGE value="只剩下动作选择栏和按钮" />
+    <MESSAGE value="真·只剩下动作选择栏和按钮" />
+    <MESSAGE value="添加翔太文件夹，功能未添加。" />
+    <MESSAGE value="包含翔太初始表情（不是面瘫了。我哭死）" />
+    <MESSAGE value="放大了翔太的模型，并调整了模型产生的坐标250，250（孩子要饿死了）" />
+    <MESSAGE value="增加了四个奇怪的表情" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了四个奇怪的表情" />
+  </component>
+</project>

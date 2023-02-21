@@ -187,167 +187,173 @@ export class CustomModel extends EventEmitter {
         };
         setPosition();
 
-        const setListener = () => {
-            if (this.model === null) {
-                throw new Error("モデルがない");
-            }
-
-            this.container.interactive = true;
-
-            //マウスが動いた時のリスナー登録
-            this.container.on("mousemove", (e: PIXI.InteractionEvent) => {
-                if (this.model === null) {
-                    throw new Error("モデルがない");
-                }
-                //イベント伝播を止める
-                e.stopPropagation();
-                e.stopped = true;
-                //
-                //console.log("イベント");
-
-                // const localPosition = e.data.getLocalPosition(e.currentTarget);//マウスのローカル座標
-                const globalPosition = e.data.global; //マウスのグローバル座標
-
-                ////modelBoxにマウスが収まっていた時にonModelBox = trueとする
-                if (this.filterRectagle.contains(globalPosition.x, globalPosition.y) === true) {
-                    this._isBoxOn = true;
-
-                    //hitTestの帰り値は配列
-                    const hitAreas: string[] = this.model.hitTest(globalPosition.x, globalPosition.y);
-                    if (hitAreas.length !== 0 && this._dragging === false) {
-                        //当たったエリアの配列が帰ってくる
-                        //console.log(this.model.hitTest(globalPosition.x, globalPosition.y));
-                        this._isHit = true;
-                        this.emit("HitAreaOver", hitAreas);
-                        //this.model.buttonMode = true;
-                        //console.log("乗った");
-                    } else {
-                        this._isHit = false;
-                        //this.model.buttonMode = false;
-                    }
-                } else {
-                    this._isHit = false;
-                    //this.model.buttonMode = false;
-                    //console.log("離れた");
-                    this._isBoxOn = false;
-                }
-            });
-            //モデルをタップした時に実行される
-            this.model.interactive = true;
-            this.model.on("hit", (hitAreaNames: Array<String>) => {
-                if (this.model !== null && this._isHit === true) {
-                    //それぞれのエリアごとに当たり判定を見ていく
-                    Object.keys(this.model.internalModel.hitAreas).forEach((area: string) => {
-                        //console.log(area);
-                        if (hitAreaNames.includes(area) === true) {
-                            this.emit("ModelHit", area); //---------------------------------------------------
-
-                            // the body is hit
-                        }
-                    });
-                }
-            });
-
-            //ドラッ時の処理を追加
-            let offsetX: number | null;
-            let offsetY: number | null;
-            const onDragStart = (event: PIXI.InteractionEvent): void => {
-                // store a reference to the data
-                // the reason for this is because of multitouch
-                // we want to track the movement of this particular touch
-
-                //this._draggable = false　なら実行しない
-                if (this._isBoxOn === false || this._draggable === false) return;
-                const target: DragObject = event.currentTarget as DragObject;
-
-                target.dragging = true;
-
-                //親要素基準のマウスのローカルポジション
-                const localPosition = event.data.getLocalPosition(target.parent);
-                //console.log(localPosition);
-                offsetX = localPosition.x - target.x;
-                offsetY = localPosition.y - target.y;
-                //console.log(offsetX, offsetY);
-                // const globalPosition = event.data.global;
-                // console.log(globalPosition);
-                //offsetX = globalPosition.x -
-            };
-
-            const onDragEnd = (event: PIXI.InteractionEvent): void => {
-                const target: DragObject = event.currentTarget as DragObject;
-                if (target.dragging === true) {
-                    this._dragging = false;
-
-                    target.alpha = 1;
-                    this.container.filters = [new PIXI.filters.AlphaFilter(1)];
-                    target.dragging = false;
-
-                    offsetX = null;
-                    offsetY = null;
-                }
-            };
-
-            const onDragMove = (event: PIXI.InteractionEvent): void => {
-                const target: DragObject = event.currentTarget as DragObject;
-                if (target.dragging === true && target.dragging !== void 0 && offsetX !== null && offsetY !== null) {
-                    this._dragging = true;
-                    target.alpha = 0.5;
-                    this.container.filters = [new PIXI.filters.AlphaFilter(0.5)];
-                    const newPosition = event.data.getLocalPosition(target.parent);
-                    target.x = newPosition.x - offsetX;
-                    target.y = newPosition.y - offsetY;
-                }
-            };
-            this.container.on("pointerdown", onDragStart).on("pointerup", onDragEnd).on("pointerupoutside", onDragEnd).on("pointermove", onDragMove);
-
-            // function onDragStart(event: PIXI.InteractionEvent) {
-            //     const obj = event.currentTarget as DragObject;
-            //     obj.dragData = event.data;
-            //     obj.dragging = 1;
-            //     obj.dragPointerStart = event.data.getLocalPosition(obj.parent);
-            //     obj.dragObjStart = new PIXI.Point();
-            //     obj.dragObjStart.copyFrom(obj.position);
-            //     obj.dragGlobalStart = new PIXI.Point();
-            //     obj.dragGlobalStart.copyFrom(event.data.global);
-            // }
-
-            // function onDragEnd(event: PIXI.InteractionEvent) {
-            //     const obj = event.currentTarget as DragObject;
-            //     if (!obj.dragging) return;
-
-            //     snap(obj);
-
-            //     obj.dragging = 0;
-            //     // set the interaction data to null
-            //     // obj.dragData = null
-            // }
-
-            // function onDragMove(event: PIXI.InteractionEvent) {
-            //     const obj = event.currentTarget as DragObject;
-            //     if (!obj.dragging) return;
-            //     const data = obj.dragData; // it can be different pointer!
-            //     if (obj.dragging === 1) {
-            //         // click or drag?
-            //         if (Math.abs(data.global.x - obj.dragGlobalStart.x) + Math.abs(data.global.y - obj.dragGlobalStart.y) >= 3) {
-            //             // DRAG
-            //             obj.dragging = 2;
-            //         }
-            //     }
-            //     if (obj.dragging === 2) {
-            //         const dragPointerEnd = data.getLocalPosition(obj.parent);
-            //         // DRAG
-            //         obj.position.set(obj.dragObjStart.x + (dragPointerEnd.x - obj.dragPointerStart.x), obj.dragObjStart.y + (dragPointerEnd.y - obj.dragPointerStart.y));
-            //     }
-            // }
-
-            // // === CLICKS AND SNAP ===
-
-            // function snap(obj: DragObject) {
-            //     obj.position.x = Math.min(Math.max(obj.position.x, 0), app.screen.width);
-            //     obj.position.y = Math.min(Math.max(obj.position.y, 0), app.screen.height);
-            // }
-        };
-        setListener();
+        //
+        // const setListener = () => {
+        //     if (this.model === null) {
+        //         throw new Error("モデルがない");
+        //     }
+        //
+        //     this.container.interactive = true;
+        //
+        //     //マウスが動いた時のリスナー登録
+        //     this.container.on("mousemove", (e: PIXI.InteractionEvent) => {
+        //         if (this.model === null) {
+        //             throw new Error("モデルがない");
+        //         }
+        //         //イベント伝播を止める
+        //         e.stopPropagation();
+        //         e.stopped = true;
+        //         //
+        //         //console.log("イベント");
+        //
+        //         // const localPosition = e.data.getLocalPosition(e.currentTarget);//マウスのローカル座標
+        //         const globalPosition = e.data.global; //マウスのグローバル座標
+        //
+        //         ////modelBoxにマウスが収まっていた時にonModelBox = trueとする\
+        //         /******************
+        //         if (this.filterRectagle.contains(globalPosition.x, globalPosition.y) === true) {
+        //             this._isBoxOn = true;
+        //
+        //             //hitTestの帰り値は配列
+        //             const hitAreas: string[] = this.model.hitTest(globalPosition.x, globalPosition.y);
+        //             if (hitAreas.length !== 0 && this._dragging === false) {
+        //                 //当たったエリアの配列が帰ってくる
+        //                 //console.log(this.model.hitTest(globalPosition.x, globalPosition.y));
+        //                 this._isHit = true;
+        //                 this.emit("HitAreaOver", hitAreas);
+        //                 //this.model.buttonMode = true;
+        //                 //console.log("乗った");
+        //             } else {
+        //                 this._isHit = false;
+        //                 //this.model.buttonMode = false;
+        //             }
+        //         } else {
+        //             this._isHit = false;
+        //             //this.model.buttonMode = false;
+        //             //console.log("離れた");
+        //             this._isBoxOn = false;
+        //         }
+        //          /******************/
+        //
+        //     });
+        //
+        //     //モデルをタップした時に実行される
+        //     this.model.interactive = true;
+        //     this.model.on("hit", (hitAreaNames: Array<String>) => {
+        //         if (this.model !== null && this._isHit === true) {
+        //             //それぞれのエリアごとに当たり判定を見ていく
+        //             Object.keys(this.model.internalModel.hitAreas).forEach((area: string) => {
+        //                 //console.log(area);
+        //                 if (hitAreaNames.includes(area) === true) {
+        //                     this.emit("ModelHit", area); //---------------------------------------------------
+        //
+        //                     // the body is hit
+        //                 }
+        //             });
+        //         }
+        //     });
+        //
+        //     //ドラッ時の処理を追加
+        //     let offsetX: number | null;
+        //     let offsetY: number | null;
+        //     const onDragStart = (event: PIXI.InteractionEvent): void => {
+        //         // store a reference to the data
+        //         // the reason for this is because of multitouch
+        //         // we want to track the movement of this particular touch
+        //
+        //         //this._draggable = false　なら実行しない
+        //         if (this._isBoxOn === false || this._draggable === false) return;
+        //         const target: DragObject = event.currentTarget as DragObject;
+        //
+        //         target.dragging = true;
+        //
+        //         //親要素基準のマウスのローカルポジション
+        //         const localPosition = event.data.getLocalPosition(target.parent);
+        //         //console.log(localPosition);
+        //         offsetX = localPosition.x - target.x;
+        //         offsetY = localPosition.y - target.y;
+        //         //console.log(offsetX, offsetY);
+        //         // const globalPosition = event.data.global;
+        //         // console.log(globalPosition);
+        //         //offsetX = globalPosition.x -
+        //     };
+        //
+        //     const onDragEnd = (event: PIXI.InteractionEvent): void => {
+        //         const target: DragObject = event.currentTarget as DragObject;
+        //         if (target.dragging === true) {
+        //             this._dragging = false;
+        //
+        //             target.alpha = 1;
+        //             this.container.filters = [new PIXI.filters.AlphaFilter(1)];
+        //             target.dragging = false;
+        //
+        //             offsetX = null;
+        //             offsetY = null;
+        //         }
+        //     };
+        //
+        //     const onDragMove = (event: PIXI.InteractionEvent): void => {
+        //         const target: DragObject = event.currentTarget as DragObject;
+        //         if (target.dragging === true && target.dragging !== void 0 && offsetX !== null && offsetY !== null) {
+        //             this._dragging = true;
+        //             target.alpha = 0.5;
+        //             this.container.filters = [new PIXI.filters.AlphaFilter(0.5)];
+        //             const newPosition = event.data.getLocalPosition(target.parent);
+        //             target.x = newPosition.x - offsetX;
+        //             target.y = newPosition.y - offsetY;
+        //         }
+        //     };
+        //     this.container.on("pointerdown", onDragStart).on("pointerup", onDragEnd).on("pointerupoutside", onDragEnd).on("pointermove", onDragMove);
+        //
+        //     // function onDragStart(event: PIXI.InteractionEvent) {
+        //     //     const obj = event.currentTarget as DragObject;
+        //     //     obj.dragData = event.data;
+        //     //     obj.dragging = 1;
+        //     //     obj.dragPointerStart = event.data.getLocalPosition(obj.parent);
+        //     //     obj.dragObjStart = new PIXI.Point();
+        //     //     obj.dragObjStart.copyFrom(obj.position);
+        //     //     obj.dragGlobalStart = new PIXI.Point();
+        //     //     obj.dragGlobalStart.copyFrom(event.data.global);
+        //     // }
+        //
+        //     // function onDragEnd(event: PIXI.InteractionEvent) {
+        //     //     const obj = event.currentTarget as DragObject;
+        //     //     if (!obj.dragging) return;
+        //
+        //     //     snap(obj);
+        //
+        //     //     obj.dragging = 0;
+        //     //     // set the interaction data to null
+        //     //     // obj.dragData = null
+        //     // }
+        //
+        //     // function onDragMove(event: PIXI.InteractionEvent) {
+        //     //     const obj = event.currentTarget as DragObject;
+        //     //     if (!obj.dragging) return;
+        //     //     const data = obj.dragData; // it can be different pointer!
+        //     //     if (obj.dragging === 1) {
+        //     //         // click or drag?
+        //     //         if (Math.abs(data.global.x - obj.dragGlobalStart.x) + Math.abs(data.global.y - obj.dragGlobalStart.y) >= 3) {
+        //     //             // DRAG
+        //     //             obj.dragging = 2;
+        //     //         }
+        //     //     }
+        //     //     if (obj.dragging === 2) {
+        //     //         const dragPointerEnd = data.getLocalPosition(obj.parent);
+        //     //         // DRAG
+        //     //         obj.position.set(obj.dragObjStart.x + (dragPointerEnd.x - obj.dragPointerStart.x), obj.dragObjStart.y + (dragPointerEnd.y - obj.dragPointerStart.y));
+        //     //     }
+        //     // }
+        //
+        //     // // === CLICKS AND SNAP ===
+        //
+        //     // function snap(obj: DragObject) {
+        //     //     obj.position.x = Math.min(Math.max(obj.position.x, 0), app.screen.width);
+        //     //     obj.position.y = Math.min(Math.max(obj.position.y, 0), app.screen.height);
+        //     // }
+        // };
+        //
+        // setListener();
 
         // const customMotionUpdate = () => {
         //     if (this.model != null) {

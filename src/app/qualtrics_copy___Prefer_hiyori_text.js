@@ -111,9 +111,9 @@ Qualtrics.SurveyEngine.addOnReady(function()
         boxWidth: 500,
         // boxHeight: 700,
         // boxHeight: 2000,
-        boxHeight: 500,
+        boxHeight: 700,
         // modelScale: 0.45,
-        modelScale: 0.35,
+        modelScale: 0.15,
         // modelScale: 0.2,
         modelX: 0,
         // modelY: 500,
@@ -125,9 +125,11 @@ Qualtrics.SurveyEngine.addOnReady(function()
     //VOICEVOXのサーバーアドレス 　サーバーはngrok等でhttps化しないとだめ　
 //    const serverURL = "https://a48e-2400-2651-41c2-1500-4405-5e59-5c98-3b57.jp.ngrok.io";
 //    const serverURL = "https://706d-133-149-88-260.jp.ngrok.io";
+    const serverURL = "localhost://41080";
     const debug = false;
-    const modelPath = "https://cdn.jsdelivr.net/gh/edu-053/AgentInteractionResources@39f3aed18d17f3ff893b842a2c5bef6e19af406e/Resources/Hiyori_free_2/hiyori_free_t08_2.model3.json";
-//    const modelPath = "https://cdn.jsdelivr.net/gh/edu-053/AgentInteractionResources@b05f35ef3939bbf98d15f2faeff0cc2560821826/Resources/Hiyori_free_2/hiyori_free_t08_3.model3.json";
+    //const modelPath = "https://cdn.jsdelivr.net/gh/edu-053/AgentInteractionResources@39f3aed18d17f3ff893b842a2c5bef6e19af406e/Resources/Hiyori_free_2/hiyori_free_t08_2.model3.json";
+    // const modelPath = "https://cdn.jsdelivr.net/gh/edu-053/AgentInteractionResources@b05f35ef3939bbf98d15f2faeff0cc2560821826/Resources/Hiyori_free_2/hiyori_free_t08_3.model3.json";
+    const modelPath = "https://cdn.jsdelivr.net/gh/l1031041272/Qualtrics-Resources-2@master/dist/Resources/AModel/AModel/amodel.model3.json";
 
     //画面の縦横100%にする
     const skinInner = document.querySelector(".SkinInner");
@@ -148,7 +150,8 @@ Qualtrics.SurveyEngine.addOnReady(function()
         "https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js",
         "https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js",
 //          "https://cdn.jsdelivr.net/gh/NomaYasuo/AgentInteraction@f2b34407eebdb25349ff51d2ce3e8cb8b5d9ee58/js/IndexLibrary.js",
-        "https://cdn.jsdelivr.net/gh/edu-053/AgentInteractionResources@ddd90da306fdbaff6b5ad71d120cd2e7343d9a2d/js/IndexLibraryPerfectPrefarence2.js",
+        //"https://cdn.jsdelivr.net/gh/edu-053/AgentInteractionResources@ddd90da306fdbaff6b5ad71d120cd2e7343d9a2d/js/IndexLibraryPerfectPrefarence2.js",
+        "https://cdn.jsdelivr.net/gh/l1031041272/Qualtrics-Resources-2@master/dist/js/IndexLibrary.js",
     ];
 
     const loadScript = (idx) => {
@@ -167,7 +170,8 @@ Qualtrics.SurveyEngine.addOnReady(function()
         //インスタンス作成＆DOMLoad操作
         console.log("ロード");
         //   constructor(debug, serverURL, modelPath, modelPosition)
-        indexLibrary = new IndexLibrary(debug, modelPath, position);
+        //indexLibrary = new IndexLibrary(debug, modelPath, position);
+        indexLibrary = new IndexLibrary(debug, serverURL, modelPath, position);
         indexLibrary.onload();
 
     };
