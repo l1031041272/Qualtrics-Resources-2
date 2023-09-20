@@ -4,6 +4,14 @@ import "../css/index.scss";
 import * as bootstrap from "bootstrap";
 import { App } from "./App";
 import { ModelPosition } from "./types";
+import * as sdk from "microsoft-cognitiveservices-speech-sdk";
+
+const speechConfig = sdk.SpeechConfig.fromSubscription("1a8f85cd7b0142288537ac7b35cc2cde", "japaneast");
+const audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
+
+speechConfig.speechRecognitionLanguage = "ja-JP";
+
+const speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
 
 export default class IndexLibrary {
     private debug: boolean;
@@ -48,8 +56,27 @@ export default class IndexLibrary {
     App_set_point =(num:number) => {
         this.app?.change_face(num);
     }
+    App_set_motion =(num:number) => {
+        this.app?.change_motion(num);
+    }
     reset_face = () => {
         this.app?.reset_face();
+    }
+
+    speech_init = () => {
+        return new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    }
+    speech_start = () => {
+        speechRecognizer.startContinuousRecognitionAsync();
+    }
+    speech_stop = () => {
+    speechRecognizer.stopContinuousRecognitionAsync();
+    }
+    speech_result = () => {
+        speechRecognizer.recognized = (s, e) => {
+            console.log(e.result.text);
+        };
+
     }
 }
 

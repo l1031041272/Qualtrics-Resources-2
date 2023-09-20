@@ -3,6 +3,8 @@ import { MyCanvas } from "./MyCanvas";
 import * as PIXILive2D from "pixi-live2d-display";
 import axios from "axios";
 import { ModelPosition } from "./types";
+import * as sdk from "microsoft-cognitiveservices-speech-sdk";
+
 interface CustomModelSettings extends PIXILive2D.ModelSettings {
     expressions?: any[];
     groups?: any[];
@@ -303,6 +305,25 @@ export class App {
                 break;
         }
     };
+    change_motion = (num: number) => {
+        switch (num){
+            case 0:
+                this.pixiCanvas?.hiyori.forceMotion("All", 11);
+                break;
+            case 1:
+                this.pixiCanvas?.hiyori.forceMotion("Happy");
+                break;
+            case 2:
+                this.pixiCanvas?.hiyori.forceMotion("All", void 2);
+                break;
+            case 3:
+                this.pixiCanvas?.hiyori.forceMotion("All", void 3);
+                break;
+            case 4:
+                this.pixiCanvas?.hiyori.forceMotion("All", void 4);
+                break;
+        }
+    }
     /*******************************************************************
     change_face = (point: number, limit: number) => {
         var item1_number = 7; //
@@ -352,4 +373,15 @@ export class App {
         console.log("233")
         this.pixiCanvas?.hiyori.setExpression("Happy_01");
     }
+
+    // speech_init = () => {
+    //     const speechConfig = sdk.SpeechConfig.fromSubscription("1a8f85cd7b0142288537ac7b35cc2cde", "japaneast");
+    //     const audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
+    //
+    //     speechConfig.speechRecognitionLanguage = "ja-JP";
+    //
+    //     const speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    //     return speechRecognizer;
+    // }
+
 };

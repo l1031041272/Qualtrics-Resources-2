@@ -147,6 +147,15 @@ const config: Configuration = {
             {
                 //https://ics.media/entry/190325/
                 // 拡張子 .ts の場合
+                test: /\.js$/,
+                exclude: /node_modules/,
+                // TypeScript をコンパイルする
+                use: "js-loader",
+            },
+
+            {
+                //https://ics.media/entry/190325/
+                // 拡張子 .ts の場合
                 test: /\.ts$/,
                 exclude: /node_modules/,
                 // TypeScript をコンパイルする
@@ -336,10 +345,11 @@ const config: Configuration = {
     },
 
     // //https://webpack.js.org/configuration/dev-server/#websocketurl
-    // externals: {
+     externals: {
+
     //     fs: "commonjs fs",
     //     path: "commonjs path",
-    // },
+     },
 
     //webpackの中に画像の圧縮処理など、重い処理を含めるとwarningが表示されます。それを回避する設定
     performance: {
@@ -377,4 +387,7 @@ const config: Configuration = {
 // });
 
 // 設定をデフォルトエクスポート
+externals:{
+    fs:require('fs')
+}
 export default config;

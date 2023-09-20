@@ -39,6 +39,7 @@
         "cross-env": "^7.0.3",
         "eventemitter3": "^4.0.7",
         "htmlspecialchars": "^1.0.5",
+        "microsoft-cognitiveservices-speech-sdk": "^1.29.0",
         "pixi-live2d-display": "^0.3.1",
         "pixi.js": "^5.3.11",
         "voicevox-api-client": "^1.0.0"

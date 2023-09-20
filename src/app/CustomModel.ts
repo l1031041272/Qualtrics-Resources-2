@@ -2,6 +2,8 @@ import * as PIXI from "pixi.js";
 import * as PIXILive2D from "pixi-live2d-display";
 import { EventEmitter } from "eventemitter3";
 import { HitAreaFrames } from "./HitAreaFrames";
+import {logger} from "pixi-live2d-display";
+import log = logger.log;
 
 //ドラッグに対応するための型を作成
 interface DragObject extends PIXI.DisplayObject {
@@ -814,6 +816,7 @@ export class CustomModel extends EventEmitter {
         this.model.expression(this.normalExpressionIndex); //表情リセット
 
         this.stopMotions(); //----------------------------------------------これでモーションを止める必要がある
+        console.log(group);
         this.model.motion(group, index, PIXILive2D.MotionPriority.FORCE); //モーション再生
         const currentState = this.model.internalModel.motionManager.state;
 
