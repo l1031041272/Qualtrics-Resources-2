@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="实现了leave2D和chatgpt对用户的聊天功能">
-      <change afterPath="$PROJECT_DIR$/src/app/qualtrics_lyu.js" afterDir="false" />
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="使用了旧的异步处理">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/IndexLibrary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/IndexLibrary.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/qualtrics_lyu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/qualtrics_lyu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/index_qualtrics.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index_qualtrics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +31,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="529c3840-86b6-4836-8144-88411ab151f5" />
+        <option name="url" value="https://github.com/l1031041272/Qualtrics-Resources-2.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -109,7 +126,8 @@
       <workItem from="1693958530116" duration="9375000" />
       <workItem from="1695201101170" duration="10136000" />
       <workItem from="1701656269211" duration="691000" />
-      <workItem from="1701676823727" duration="3630000" />
+      <workItem from="1701676823727" duration="12764000" />
+      <workItem from="1701744630539" duration="11034000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -209,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695202654517</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="使用了旧的异步处理">
+      <created>1701680824557</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701680824557</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +260,7 @@
     <MESSAGE value="放大了翔太的模型，并调整了模型产生的坐标250，250（孩子要饿死了）" />
     <MESSAGE value="增加了四个奇怪的表情" />
     <MESSAGE value="实现了leave2D和chatgpt对用户的聊天功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现了leave2D和chatgpt对用户的聊天功能" />
+    <MESSAGE value="使用了旧的异步处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="使用了旧的异步处理" />
   </component>
 </project>

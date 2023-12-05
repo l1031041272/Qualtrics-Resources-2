@@ -1,5 +1,6 @@
 //http://localhost:40080
 //http://192.168.3.10:40080
+
 const serverURL = "http://localhost:50021";
 const debug = false;
 //const modelPath = "/Resources/Hiyori_2/Hiyori.model3.json";
@@ -151,7 +152,8 @@ const backMsg = () => {
     }*/
 };
 btn.addEventListener('click', () => {
-    reply();
+    indexLibrary.chatgpt_reply();
+    //reply();
     sendMsg();
     //backMsg();
 });
@@ -161,7 +163,7 @@ btn.addEventListener('click', () => {
 txt.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
         // Enter's keyCode is 13
-        reply();
+        indexLibrary.chatgpt_reply();
         sendMsg();
         //backMsg();
     }
@@ -187,16 +189,16 @@ function speechRrcognizer() {
     // speechRecognizer.recognized = (s, e) => {
     //     console.log(e.result.text);
     // };
-    console.log("111111");
+    console.log("IN SPEECH");
     const speechRecognizer = indexLibrary.speech_init();
     speechRecognizer.recognized = (s, e) => {
-            console.log(e.result.text);
-            const txt_undefined = "undefined";
-            // console.log(speaking);
-            if(speaking.classList.contains("speaking")){
-                input.value += e.result.text;
-            }
+        console.log(e.result.text);
+        const txt_undefined = "undefined";
+        // console.log(speaking);
+        if(speaking.classList.contains("speaking")){
+            input.value += e.result.text;
         }
+    }
     const stop = () => {
         speaking.classList.remove("speaking");
         console.log(speaking.classList.contains("speaking"));
@@ -224,12 +226,14 @@ function speechRrcognizer() {
 
 const start1 = document.getElementById("start1");
 start1.addEventListener("click",event => {
-    speechRrcognizer();
+    //speechRrcognizer();
+    //ready();
+    indexLibrary.chatgpt_init()
 })
 
 //CHAT GPT代码
 
-const API_KEY = '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';
+const API_KEY = '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';
 const URL = "https://api.openai.com/v1/chat/completions";
 
 
@@ -329,87 +333,87 @@ const URL = "https://api.openai.com/v1/chat/completions";
 // }
 //-----------------------------------------------------------------------------------------------------------备份--------------------------------------------------------------------------------------------------//
 
-function reply() {
-    var textgpt = document.getElementById("txt").value;
-    console.log(textgpt);
-
-    // 封装异步操作为Promise
-    function getResponse() {
-        return new Promise((resolve, reject) => {
-            axios.post(
-                URL,
-                {
-                    "model": "gpt-3.5-turbo",
-                    "messages": [
-                        { "role": "system", "content": "Due to the reduced virulence of the novel coronavirus, Japan no longer mandates the wearing of masks for the general public. However, as a medical advisor, I would like to emphasize the importance of wearing masks while traveling and persuade those who are reluctant to do so. Wearing masks serves as a crucial preventive measure, helping to minimize the spread of respiratory droplets and protect both the wearer and those around them from potential infection. For individuals who willingly wear masks during their outings, I commend and support their decision, as it demonstrates their understanding of the significance of mask usage. Let's continue to encourage everyone to prioritize mask-wearing as an essential practice for public health. Lastly, if discussions veer off-topic or away from health-related inquiries, I kindly remind users to stay focused on the subject at hand.Please respond in Japanese." },
-                        { "role": "system", "content": "And, please output your point of view in only one paragraph, with as few words of output as possible. " },
-                        { "role": "user", "content": textgpt }
-                    ]
-                },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${API_KEY}`,
-                    },
-                }
-            )
-                .then(response => resolve(response.data.choices[0].message.content))
-                .catch(error => reject(error));
-        });
-    }
-
-    // 调用Promise并处理结果
-    getResponse()
-        .then(chatgpt_response => {
-            $("#response_text").val(chatgpt_response);
-            backMsg();
-            var paragraphs = document.querySelectorAll("p#chatgpt");
-            var lastParagraph = paragraphs[paragraphs.length - 1];
-            lastParagraph.textContent = chatgpt_response;
-            console.log(lastParagraph);
-            console.log(chatgpt_response);
-            const chatPage = document.querySelector('.chat-page');
-            chatPage.scrollTop = chatPage.scrollHeight - chatPage.clientHeight;
-        })
-        .catch(error => console.log(error));
-}
-
-function ready() {
-    // 封装异步操作为Promise
-    function ready_getResponse() {
-        return new Promise((resolve, reject) => {
-            axios.post(
-                URL,
-                {
-                    "model": "gpt-3.5-turbo",
-                    "messages": [
-                        { "role": "system", "content": "Due to the reduced virulence of the novel coronavirus, Japan no longer mandates the wearing of masks for the general public. However, as a medical advisor, I would like to emphasize the importance of wearing masks while traveling and persuade those who are reluctant to do so. Wearing masks serves as a crucial preventive measure, helping to minimize the spread of respiratory droplets and protect both the wearer and those around them from potential infection. For individuals who willingly wear masks during their outings, I commend and support their decision, as it demonstrates their understanding of the significance of mask usage. Let's continue to encourage everyone to prioritize mask-wearing as an essential practice for public health. Lastly, if discussions veer off-topic or away from health-related inquiries, I kindly remind users to stay focused on the subject at hand.Please respond in Japanese." },
-                        { "role": "system", "content": "And, please output your point of view in only one paragraph, with as few words of output as possible. " },
-                        { "role": "user", "content": "こんにちは" }
-                    ]
-                },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${API_KEY}`,
-                    },
-                }
-            )
-                .then(response => resolve(response.data.choices[0].message.content))
-                .catch(error => reject(error));
-        });
-    }
-
-    // 调用Promise并处理结果
-    ready_getResponse()
-        .then(chatgpt_response => {
-            $("#response_text").val(chatgpt_response);
-            backMsg();
-            var paragraphs = document.querySelectorAll("p#chatgpt");
-            var lastParagraph = paragraphs[paragraphs.length - 1];
-            lastParagraph.textContent = chatgpt_response;
-            console.log(lastParagraph);
-            console.log(chatgpt_response);
-        })
-        .catch(error => console.log(error));
-}
+// function reply() {
+//     var textgpt = document.getElementById("txt").value;
+//     console.log(textgpt);
+//
+//     // 封装异步操作为Promise
+//     function getResponse() {
+//         return new Promise((resolve, reject) => {
+//             axios.post(
+//                 URL,
+//                 {
+//                     "model": "gpt-3.5-turbo",
+//                     "messages": [
+//                         { "role": "system", "content": "Due to the reduced virulence of the novel coronavirus, Japan no longer mandates the wearing of masks for the general public. However, as a medical advisor, I would like to emphasize the importance of wearing masks while traveling and persuade those who are reluctant to do so. Wearing masks serves as a crucial preventive measure, helping to minimize the spread of respiratory droplets and protect both the wearer and those around them from potential infection. For individuals who willingly wear masks during their outings, I commend and support their decision, as it demonstrates their understanding of the significance of mask usage. Let's continue to encourage everyone to prioritize mask-wearing as an essential practice for public health. Lastly, if discussions veer off-topic or away from health-related inquiries, I kindly remind users to stay focused on the subject at hand.Please respond in Japanese." },
+//                         { "role": "system", "content": "And, please output your point of view in only one paragraph, with as few words of output as possible. " },
+//                         { "role": "user", "content": textgpt }
+//                     ]
+//                 },
+//                 {
+//                     headers: {
+//                         "Content-Type": "application/json",
+//                         Authorization: `Bearer ${API_KEY}`,
+//                     },
+//                 }
+//             )
+//                 .then(response => resolve(response.data.choices[0].message.content))
+//                 .catch(error => reject(error));
+//         });
+//     }
+//
+//     // 调用Promise并处理结果
+//     getResponse()
+//         .then(chatgpt_response => {
+//             $("#response_text").val(chatgpt_response);
+//             backMsg();
+//             var paragraphs = document.querySelectorAll("p#chatgpt");
+//             var lastParagraph = paragraphs[paragraphs.length - 1];
+//             lastParagraph.textContent = chatgpt_response;
+//             console.log(lastParagraph);
+//             console.log(chatgpt_response);
+//             const chatPage = document.querySelector('.chat-page');
+//             chatPage.scrollTop = chatPage.scrollHeight - chatPage.clientHeight;
+//         })
+//         .catch(error => console.log(error));
+// }
+//
+// function ready() {
+//     // 封装异步操作为Promise
+//     function ready_getResponse() {
+//         return new Promise((resolve, reject) => {
+//             axios.post(
+//                 URL,
+//                 {
+//                     "model": "gpt-3.5-turbo",
+//                     "messages": [
+//                         { "role": "system", "content": "Due to the reduced virulence of the novel coronavirus, Japan no longer mandates the wearing of masks for the general public. However, as a medical advisor, I would like to emphasize the importance of wearing masks while traveling and persuade those who are reluctant to do so. Wearing masks serves as a crucial preventive measure, helping to minimize the spread of respiratory droplets and protect both the wearer and those around them from potential infection. For individuals who willingly wear masks during their outings, I commend and support their decision, as it demonstrates their understanding of the significance of mask usage. Let's continue to encourage everyone to prioritize mask-wearing as an essential practice for public health. Lastly, if discussions veer off-topic or away from health-related inquiries, I kindly remind users to stay focused on the subject at hand.Please respond in Japanese." },
+//                         { "role": "system", "content": "And, please output your point of view in only one paragraph, with as few words of output as possible. " },
+//                         { "role": "user", "content": "こんにちは" }
+//                     ]
+//                 },
+//                 {
+//                     headers: {
+//                         "Content-Type": "application/json",
+//                         Authorization: `Bearer ${API_KEY}`,
+//                     },
+//                 }
+//             )
+//                 .then(response => resolve(response.data.choices[0].message.content))
+//                 .catch(error => reject(error));
+//         });
+//     }
+//
+//     // 调用Promise并处理结果
+//     ready_getResponse()
+//         .then(chatgpt_response => {
+//             $("#response_text").val(chatgpt_response);
+//             backMsg();
+//             var paragraphs = document.querySelectorAll("p#chatgpt");
+//             var lastParagraph = paragraphs[paragraphs.length - 1];
+//             lastParagraph.textContent = chatgpt_response;
+//             console.log(lastParagraph);
+//             console.log(chatgpt_response);
+//         })
+//         .catch(error => console.log(error));
+// }

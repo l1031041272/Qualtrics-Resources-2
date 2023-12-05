@@ -5,6 +5,7 @@ import * as bootstrap from "bootstrap";
 import { App } from "./App";
 import { ModelPosition } from "./types";
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
+import axios from "axios";
 
 const speechConfig = sdk.SpeechConfig.fromSubscription("1a8f85cd7b0142288537ac7b35cc2cde", "japaneast");
 const audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
@@ -77,6 +78,12 @@ export default class IndexLibrary {
             console.log(e.result.text);
         };
 
+    }
+    chatgpt_init = () => {
+        this.app?.chatgpt_ready();
+    }
+    chatgpt_reply = () => {
+        this.app?.chatgpt_reply();
     }
 }
 

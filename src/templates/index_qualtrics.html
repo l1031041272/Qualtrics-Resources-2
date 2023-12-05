@@ -1,238 +1,318 @@
-<meta charset="UTF-8" />
-<style type="text/css">#dialog {
-    width: 370px;
-    margin: auto;
-    /* margin-top: 40vh;
-    padding: 30px 20px; */
-    display: none;
-    text-align: center;
-    border: 6px solid rgb(192, 28, 28);
-    box-shadow: 2px 2px 4px #888;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background-color: white;
-    z-index: 40;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<style>
+    /* Asterisk Selector * Targets All Elements On a Webpage */
+    .row m-2 {
+        width: 500px;
+        height: 500px;
+        float: left;
+    }
 
-#all {
-    width:auto;
-    position:absolute;
-    /* height:auto; */
-    /* background:silver; */
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+        outline: none;
+    }
 
+    :root {
+        --bg-ctn: #cfcdd9;
+        --bg-wrap: #f0eff6;
+        --bg-input: #e8e8e8;
+        --white: #fff;
+        --black: #565367;
+        --grey: #9b99a6;
+        --dark-grey: #222831;
+        --purple: #6a5bc2;
+    }
 
-#image01{
-    display: block;
-    height:50%;
-    width:50%;
-    margin: auto;
-}
+    html {
+        font-size: 10px;
+    }
 
-#task{
-    display:flex;
-    align-items: flex-end;
-}
+    body {
+        font-family: 'Montserrat', sans-serif;
+        /* -webkit-user-select: none;
+        user-select: none; */
+    }
 
-.main_board{
-    position: relative;
-}
+    p {
+        font-size: 1.6rem;
+        line-height: 1.5;
+    }
 
-#selection{
-    z-index: 40;
-    position: relative;
-}
+    img {
+        width: 100%;
+    }
 
-#select {
-    color: #000;
-    border-bottom: 5px solid;
-}
+    .container {
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-ctn);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-#select:hover {
-    margin-top: 3px;
-    color: #000;
-    border-bottom: 2px solid;
-}
-#table_line{
-    position: absolute;
-    text-align: center;
-}
+    @keyframes bg-pulse {
+        0% {
+            background-color: #fff;
+        }
 
+        50% {
+            background-color: #c7ecee;
+        }
 
-/* スライダー */
-#slider_div{
-    position: absolute;
-    z-index: 20;
-}
+        100% {
+            backgrouond-color: #fff;
+        }
+    }
 
-.slider_zone{
-    position: absolute;
-    left:0px;
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-.slider{
-    width:100px;
-    z-index:500;
-}
+    .wrapper {
+        width: 30rem;
+        height: 65rem;
+        background: var(--bg-wrap);
+        border-radius: 5rem;
+        padding: 1.5rem 2.5rem;
+        box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.05);
+    }
 
+    .speaking{
+        animation: bg-pulse 1.5s alternate ease-in-out infinite;
+    }
+    /* Topbar Section */
 
+    .topbar {
+        width: 100%;
+        height: 3rem;
+        /* background: red; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.my_item {
-    width: 100px;
-    height: 100px;
-}
+    .topbar-left {
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
 
+    .topbar-left,
+    .topbar-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
 
-.op_item {
-    width: 75px;
-    height: 75px;
-}
+    .topbar-right span {
+        font-size: 1.8rem;
+    }
 
+    .topbar-right span:nth-child(2) {
+        font-size: 1.6rem;
+    }
 
-#suggestion {
-    cursor: pointer;
-    width:100px;
-    z-index: 40;
+    /* Header Section */
 
-    display: flex;
-    align-items: flex-end;
+    .header {
+        width: 100%;
+        height: 4rem;
+        /* background: green; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all  0.3s ease;
-}
+    .header p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--grey);
+    }
 
+    .header span {
+        font-size: 1.6rem;
+    }
 
-#suggestion img{
-    z-index: 60;
-    position: relative;
-}
+    /* Chat Page Section */
 
-#suggestion:hover img{
-    box-shadow: 0px 0px 10px 2px #F9DB57;
-}
+    .chat-page {
+        height: 48rem;
+        overflow-y: scroll;
+    }
 
-#myCanvas{
-    height:500px;
-    display: flex;
-}
+    .chat-page::-webkit-scrollbar {
+        display: none;
+    }
 
-#point_table{
-    font-size: 20px;
-    text-align: center;
-    width: 480px;
-}
-.total_point{
-    color: red;
-}
+    .chat-user {
+        margin-bottom: 1rem;
+    }
 
+    /* User 1 */
+
+    .user-img {
+        display: block;
+        width: 3.5rem;
+        float: left;
+    }
+
+    .user-img img {
+        width: 100%;
+        border-radius: 50%;
+    }
+
+    .user-msg {
+        display: inline-block;
+        padding: 0 0 0 1rem;
+        width: 82%;
+    }
+
+    .user-msg p {
+        width: 100%;
+        background: var(--white);
+        border-radius: 0 1.4rem 1.4rem 1.4rem;
+        font-size: 1.2rem;
+        font-weight: 500;
+        padding: 1rem;
+        word-wrap: break-word;
+    }
+
+    .user-msg .time {
+        display: block;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--grey);
+        margin: 0.5rem 1.2rem;
+    }
+
+    /* User 2 */
+
+    .user2 .user-img {
+        float: right;
+    }
+
+    .user2 .user-msg p {
+        color: var(--white);
+        background: var(--purple);
+        border-radius: 1.4rem 0 1.4rem 1.4rem;
+    }
+
+    .user2 .user-msg .time {
+        float: right;
+    }
+
+    /* Chat Input Section */
+    .chat-input {
+        width: 100%;
+        height: 4rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    /*
+    .chat-input img {
+        width: 3.5rem;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    */
+    .material-symbols-outlined {
+        font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48;
+        padding: 10px;
+    }
+
+    .chat-input input {
+        width: 100%;
+        background: var(--bg-input);
+        border: none;
+        line-height: 3;
+        border-radius: 3rem;
+        margin: 0 1rem;
+        padding: 0 1.5rem;
+    }
+
+    .chat-input input::placeholder {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--grey);
+    }
+
+    .chat-input label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--purple);
+        cursor: pointer;
+    }
 </style>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.2/axios.min.js"></script>
+
+    <title>Chat</title>
+    <link rel="stylesheet"/>
 
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link   rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
-<div id="all">
-    <div id="intro">
-        <div>スライダーバーを操作してお互いが納得できるアイテムの配分を探索し、翔太に提案してください。</div>
+</head>
 
-        <div><strong><font color="red">翔太に提案できるチャンスは一回のみです。注意して考えてください。</font></strong></div>
-        <input name="F_EMO" type="hidden" value="${e://Field/F_emo}" />
-        <input name="F_BLI" type="hidden" value="${e://Field/F_bli}" />
-        <input name="Limit" type="hidden" id="Limit" value="${e://Field/Limit}" />
-        <input name="Array" type="hidden" value="${e://Field/array}" />
-        <input name="slider1_init" type="hidden" value="${e://Field/slider1}" />
-        <input name="slider2_init" type="hidden" value="${e://Field/slider2}" />
-        <input name="slider3_init" type="hidden" value="${e://Field/slider3}" />
-        <input name="slider4_init" type="hidden" value="${e://Field/slider4}" />
-        <input name="item1" type="hidden" value="${e://Field/participant_preference_1st}" />
-        <input name="item2" type="hidden" value="${e://Field/participant_preference_2nd}" />
-        <input name="item3" type="hidden" value="${e://Field/participant_preference_3rd}" />
-        <input name="item4" type="hidden" value="${e://Field/participant_preference_4th}" />
-
+<body class="bg-success">
+<div class="container">
+    <div class="row m-2">
+        <canvas id="myCanvas" class="border border-5 rounded-3 border-info"></canvas>
     </div>
 
+    <button type="button" id="start1" >スタート</button>
 
 
+</div>
 
 
-
-
-
-
-
-    <div id="task">
-
-        <div class="main_board">
-
-            <div class="container" align="center">
-                <div class="row m-2">
-                    <canvas id="myCanvas" class="border border-5 rounded-3 border-info"></canvas>
-                </div>
+<div class="container">
+    <div class="wrapper">
+        <div class="topbar">
+            <div class="topbar-left"></div>
+        </div>
+        <div class="chat-page">
+            <div class="chats">
             </div>
-
-
-
-
-            <div id="table">
-                <div  align="center" id="table_line"></div>
-                <div align="center" id="slider_div"></div>
-            </div>
-
         </div>
+        <div class="chat-input">
 
-
-
-        <div id="suggestion">
-            <img id="suggestion_button"  src="https://rc1userv5pwvgnvtxbwj.au1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_37see1hsKpzpuAK">
-        </div>
-
-        <div id="point_table_div">
-            <table  border="1" style="border-collapse: collapse" id="point_table">
-                <tr>
-                    <th></th>
-                    <th><div id="point_table_item1" align="center"></div></th>
-                    <th><div id="point_table_item2" align="center"></div></th>
-                    <th><div id="point_table_item3" align="center"></div></th>
-                    <th><div id="point_table_item4" align="center"></div></th>
-                    <th><div align="center">合計</div></th>
-                </tr>
-                <tr>
-                    <td>翔太の点数</td>
-                    <td id="agent_item1_point">×点</td>
-                    <td id="agent_item2_point">×点</td>
-                    <td id="agent_item3_point">×点</td>
-                    <td id="agent_item4_point">×点</td>
-                    <td id="agent_total_point" class="total_point">点</td>
-                </tr>
-                <tr>
-                    <td>あなたの点数</td>
-                    <td id="human_item1_point">×点</td>
-                    <td id="human_item2_point">×点</td>
-                    <td id="human_item3_point">×点</td>
-                    <td id="human_item4_point">×点</td>
-                    <td id="human_total_point" class="total_point">点</td>
-                </tr>
-            </table>
+            <input type="text" placeholder="Type Message..." id="txt" />
+            <span class="material-symbols-outlined" id="mic">mic</span>
+            <label for="txt" id="btn">Send</label>
         </div>
     </div>
+</div>
 
-
-
-    <div class="suggest">
-        <div id="dialog">
-            <p>この配分を翔太に提案した後、<br />
-                翔太が合意するかを判断します。</p>
-            &nbsp;
-
-            <p>※提案できるのはこの一回のみです。</p>
-
-            <div id="last_check">&nbsp;</div>
-            <button id="yes">提案する</button><button id="cancel">キャンセル</button></div>
-
-    </div>
+</body>
+</html>

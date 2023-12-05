@@ -79,6 +79,7 @@
 
         /* Type Checking */
         "strict": true /* Enable all strict type-checking options. */,
+        "noImplicitThis": true                           /* Enable error reporting when `this` is given the type `any`. */,
         // "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied `any` type.. */
         // "strictNullChecks": true,                         /* When type checking, take into account `null` and `undefined`. */
         // "strictFunctionTypes": true,                      /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */
@@ -106,7 +107,8 @@
     //ts-node用の設定 https://zenn.dev/sprout2000/articles/9d026d3d9e0e8f#webpack.config-%E3%82%92-typescript-%E3%81%A7%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B
     "ts-node": {
         "compilerOptions": {
-          "module": "CommonJS"
+          "module": "CommonJS",
+            "noImplicitThis": true
         }
     },
 
