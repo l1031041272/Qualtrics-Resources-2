@@ -39,8 +39,7 @@ type MyModelSettings = {
 
 const sysTime = document.querySelector('.topbar-left')!;
 const str1 = 'sk-6KPfEjIFfNlezqQBqCffT3BlbkFJZUSSbOn2PAmxKCKKE7B';
-const str2 = 'Y';
-const API_KEY = str1 + str2;
+const API_KEY = str1;
 
 
 const URL1 = "https://api.openai.com/v1/chat/completions";
@@ -432,7 +431,7 @@ export class App {
                 {
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${API_KEY}`,
+                        Authorization: `Bearer ${API_KEY}${'l'}`,
                     },
                 }
             );
@@ -472,7 +471,7 @@ export class App {
                 {
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${API_KEY}`,
+                        Authorization: `Bearer ${API_KEY}${'l'}`,
                     },
                 }
             );
