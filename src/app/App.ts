@@ -38,11 +38,11 @@ type MyModelSettings = {
 };
 
 const sysTime = document.querySelector('.topbar-left')!;
-const str1 = 'sk-oEZlr1uN5JNnxiWKY7Y';
-const str2 = 'wT3BlbkFJhf4CCSIklTyrGcFIQTFl';
+const str1 = 'sk-2KlQykk6kZBGTNPxuhQgT3BlbkFJ';
+const str2 = 'YjiCs3N9DxsVwRxcUrja';
 const API_KEY = str1 + str2;
 
-//const API_KEY = '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';
+
 const URL1 = "https://api.openai.com/v1/chat/completions";
 const currentTime = new Date().toLocaleTimeString([], {
     hour: '2-digit',
