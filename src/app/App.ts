@@ -38,8 +38,8 @@ type MyModelSettings = {
 };
 
 const sysTime = document.querySelector('.topbar-left')!;
-const str1 = 'sk-2KlQykk6kZBGTNPxuhQgT3BlbkFJ';
-const str2 = 'YjiCs3N9DxsVwRxcUrja';
+const str1 = 'sk-6KPfEjIFfNlezqQBqCffT3BlbkFJZUSSbOn2PAmxKCKKE7B';
+const str2 = 'Y';
 const API_KEY = str1 + str2;
 
 
