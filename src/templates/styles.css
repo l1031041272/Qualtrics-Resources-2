@@ -74,6 +74,10 @@ img {
     border-radius: 5rem;
     padding: 1.5rem 2.5rem;
     box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 .speaking{

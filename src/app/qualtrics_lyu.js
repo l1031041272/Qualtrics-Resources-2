@@ -14,11 +14,11 @@
 //550, 700, 0.45, 0, 500 モデル顔中心
 //225, 350, 0.25, 0, 250
         const position = {
-            boxWidth: 550,
+            boxWidth: 300,
             boxHeight: 700,
-            modelScale: 0.15,
+            modelScale: 0.13,
             modelX: 0,
-            modelY: 500,
+            modelY: 300,
         };
 
         // document.addEventListener(
@@ -53,11 +53,11 @@
             //550, 700, 0.45, 0, 500 モデル顔中心
             //225, 350, 0.25, 0, 250
             const position = {
-                boxWidth: 550,
+                boxWidth: 300,
                 boxHeight: 700,
-                modelScale: 0.15,
+                modelScale: 0.13,
                 modelX: 0,
-                modelY: 500,
+                modelY: 300,
             };
             //インスタンス作成＆DOMLoad操作
             console.log("ロード");

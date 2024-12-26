@@ -5,16 +5,18 @@ const serverURL = "http://localhost:50021";
 const debug = false;
 //const modelPath = "/Resources/Hiyori_2/Hiyori.model3.json";
 const modelPath = "/Resources/AModel/AModel/amodel.model3.json";
+// 添加状态标记
 
 //550, 900, 0.235, 0, -20 モデル全身/
 //550, 700, 0.45, 0, 500 モデル顔中心
 //225, 350, 0.25, 0, 250
+//550, 700, 0.15, 0, 500
 const position = {
-    boxWidth: 550,
+    boxWidth: 300,
     boxHeight: 700,
-    modelScale: 0.15,
+    modelScale: 0.13,
     modelX: 0,
-    modelY: 500,
+    modelY: 300,
 };
 let indexLibrary = null;
 
@@ -66,7 +68,7 @@ window.addEventListener("beforeunload",()=>{
 // }
 function  initExpression() {
     indexLibrary.App_set_point(0)
-    speechRrcognizer();
+    //speechRrcognizer();语音识别，不使用
     console.log("233");
 }
 /*添加聊天内容*/
@@ -152,23 +154,172 @@ const backMsg = () => {
     }*/
 };
 btn.addEventListener('click', () => {
-    indexLibrary.chatgpt_reply();
-    //reply();
-    sendMsg();
-    //backMsg();
+    indexLibrary.handleChat(3,'放射性廃棄物の長期管理が将来の世代に大きな負担を残す可能性が増す');
+    //indexLibrary.copyConversationToClipboard(5);
 });
 
 // Send Message upon Pressing Enter
 
-txt.addEventListener('keydown', (e) => {
-    if (e.keyCode === 13) {
-        // Enter's keyCode is 13
-        indexLibrary.chatgpt_reply();
-        sendMsg();
-        //backMsg();
-    }
-});
+// txt.addEventListener('keydown', (e) => {
+//     if (e.keyCode === 13) {
+//         // Enter's keyCode is 13
+//         indexLibrary.chatgpt_reply();
+//         indexLibrary.sendMsg();
+//         //backMsg();
+//     }
+// });
 
+// txt.addEventListener('keydown', (e) => {
+//     if (e.keyCode === 13) { // Enter 键
+//     indexLibrary.handleChat();
+//     }
+// });
+
+const start1 = document.getElementById("start1");
+start1.addEventListener("click",event => {
+    //speechRrcognizer();
+    //ready();
+    //indexLibrary.chatgpt_init()
+    console.log("验证");
+    indexLibrary.assistant_init();
+})
+
+// 封装函数
+function copyConversationToClipboard(promptIndex) {
+    // 1. 获取所有聊天内容段落
+
+    const allParagraphs = document.querySelectorAll("p.copy-msg-USER, p.copy-msg-GPT");
+
+    // 2. 转成 ChatCompletion 所需的 {role, content} 格式
+    let conversation = [];
+    allParagraphs.forEach(paragraph => {
+        if (paragraph.classList.contains("copy-msg-USER")) {
+            conversation.push({ role: "user", content: paragraph.innerText });
+        } else if (paragraph.classList.contains("copy-msg-GPT")) {
+            conversation.push({ role: "assistant", content: paragraph.innerText });
+        }
+    });
+
+    // 3. 只保留最近 6 条 (user/assistant) 对话（可选逻辑）
+    if (conversation.length > 6) {
+        conversation.splice(0, conversation.length - 6);
+    }
+
+    // 4. 定义若干 System Prompt，并根据传入的索引选择
+    const prompts = [
+        "我是第1个 system Prompt：请用幽默的方式回答问题。",
+        "我是第2个 system Prompt：请用简洁明了的方式回答问题。",
+        "我是第3个 system Prompt：你是一名专业日语翻译。",
+        "我是第4个 system Prompt：你是一名资深研究员，请给出严谨回答。",
+        "我是第5个 system Prompt：请把所有回答都改写成诗歌形式。"
+    ];
+
+    // 验证 promptIndex 是否在合理范围
+    let systemPromptContent = "";
+    if (promptIndex >= 1 && promptIndex <= 5) {
+        systemPromptContent = prompts[promptIndex - 1];
+    } else {
+        systemPromptContent = "（未选择有效Prompt，使用默认System提示）";
+    }
+
+    // 5. 在最前面插入 system 消息
+    //    这样后续 user / assistant 的消息就会在 system 之后
+    const systemMessage = {
+        role: "system",
+        content: systemPromptContent
+    };
+
+    // 组合最终 messages：先 system，再已有对话
+    const finalMessages = [systemMessage, ...conversation];
+
+    // 6. 构造完整的请求数据
+    const finalPayload = {
+        model: "gpt-3.5-turbo",
+        messages: finalMessages
+    };
+
+    // 7. 转成 JSON 并输出到控制台
+    const conversationJSON = JSON.stringify(finalPayload, null, 2);
+    console.log("=== Final JSON to send API ===\n", conversationJSON);
+
+    // 8. 复制到剪贴板
+    navigator.clipboard.writeText(conversationJSON)
+        .then(() => {
+            console.log("已复制到剪贴板！");
+        })
+        .catch(err => {
+            console.error("复制失败:", err);
+        });
+}
+
+// 给按钮绑定点击事件，点击后执行拷贝逻辑
+const copyBtn = document.getElementById("git_copy");
+copyBtn.addEventListener("click", () => {
+    copyConversationToClipboard(3);
+});
+//原来按键复制内容
+// const copy = document.getElementById("git_copy");
+// copy.addEventListener("click",event => {
+//     var tesst = document.querySelectorAll("p.copy-msg");
+//     var i;
+//     for (i = 0; i < tesst.length; i++) {
+//         console.log(tesst[i].innerText);
+//     }
+// })
+
+//
+//正计时
+let startTime = new Date().getTime();  // 获取当前时间作为开始时间
+function timingTime(){
+    let currentTime = new Date().getTime()
+    let difference = currentTime - startTime
+    let m =  Math.floor(difference / (1000))
+    let mm = m % 60  // 秒
+    let f = Math.floor(m / 60)
+    let ff = f % 60 // 分钟
+    let s = Math.floor(f/ 60) // 小时
+    let ss = s % 24
+    //let day = Math.floor(s  / 24 ) // 天数
+    //return day + "天" + ss + "时" + ff + "分" + mm +'秒'
+
+    return "経過時間：" + ss + ":" + ff + ":" + mm
+}
+setInterval(()=>{
+    document.getElementById('topbar-left').innerHTML = timingTime()
+},1000);
+
+
+// //倒计时
+//
+// //let endTime = new Date().getTime() + 60 * 60 * 1000;  // 1小时后的时间
+// //let endTime = new Date().getTime() + 10 * 60 * 1000;  // 10分钟的时间
+// let endTime = new Date().getTime() + 10 * 1000;  // 10秒钟的时间
+//
+// function countdownTime() {
+//     let currentTime = new Date().getTime();
+//     let difference = endTime - currentTime;
+//
+//     if (difference < 0) {
+//         return "倒计时已结束";
+//     }
+//
+//     let m = Math.floor(difference / 1000);
+//     let mm = m % 60; // 秒
+//     let f = Math.floor(m / 60);
+//     let ff = f % 60; // 分钟
+//     let s = Math.floor(f / 60); // 小时
+//     let ss = s % 24;
+//     //let day = Math.floor(s / 24); // 天数
+//     //return day + "天" + ss + "时" + ff + "分" + mm + '秒';
+//     return "剩余" + ss + "时" + ff + "分" + mm + '秒';
+// }
+//
+// setInterval(() => {
+//     document.getElementById('topbar-left').innerHTML = countdownTime();
+// }, 1000);
+
+
+/*语音识别相关代码
 function speechRrcognizer() {
     const speech = document.getElementById("mic");
     const speaking = document.getElementsByClassName("wrapper")[0];
@@ -223,18 +374,16 @@ function speechRrcognizer() {
 
     ready();
 };
+*/
 
-const start1 = document.getElementById("start1");
-start1.addEventListener("click",event => {
-    //speechRrcognizer();
-    //ready();
-    indexLibrary.chatgpt_init()
-})
 
 //CHAT GPT代码
 
-const API_KEY = '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';
-const URL = "https://api.openai.com/v1/chat/completions";
+//const API_KEY = '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';
+//const URL = "https://api.openai.com/v1/chat/completions";
+
+
+
 
 
 //-----------------------------------------------------------------------------------------------------------备份--------------------------------------------------------------------------------------------------//

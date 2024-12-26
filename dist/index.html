@@ -15,7 +15,7 @@
         }
 
         :root {
-            --bg-ctn: #cfcdd9;
+            --bg-ctn: #cfcdd9;/*背景中的银色部分*/
             --bg-wrap: #f0eff6;
             --bg-input: #e8e8e8;
             --white: #fff;
@@ -68,7 +68,7 @@
         }
 
         .wrapper {
-            /*width: 30rem;*/
+            width: 80rem;
             height: 65rem;
             background: var(--bg-wrap);
             border-radius: 5rem;
@@ -153,12 +153,13 @@
 
         .bg-success {
             --bs-bg-opacity: 1;
-            background-color: #cfcdd9;
+            background-color: #cfcdd9;  !important;
         }
         /* User 1 */
 
         .user-img {
             display: block;
+            flex: 0 0 3.5rem;
             width: 3.5rem;
             float: left;
         }
@@ -171,7 +172,13 @@
         .user-msg {
             display: inline-block;
             padding: 0 0 0 1rem;
-            width: 82%;
+            /*width: 82%;*/
+            width: auto;
+        }
+        .chat-user.user1 {
+            display: flex;          /* 使用 flex 布局 */
+            align-items: flex-start; /* 顶部对齐 */
+            margin-bottom: 10px;    /* 消息间距 */
         }
 
         .user-msg p {
@@ -193,7 +200,6 @@
         }
 
         /* User 2 */
-
         .user2 .user-img {
             float: right;
         }
@@ -259,4 +265,4 @@
             font-weight: 700;
             color: var(--purple);
             cursor: pointer;
-        }</style><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/><script defer="defer" src="js/IndexLibrary.js"></script><link href="css/IndexLibrary.css" rel="stylesheet"></head><body class="bg-success"><div class="container"><div class="row m-2"><canvas id="myCanvas" class="border border-5 rounded-3 border-info"></canvas></div><button type="button" id="start1">スタート</button></div><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script><script type="module" src="../Resources/main.js" defer="defer"></script><div class="container"><div class="wrapper"><div class="topbar"><div class="topbar-left"></div></div><div class="chat-page"><div class="chats"></div></div><div class="chat-input"><input placeholder="Type Message..." id="txt"/> <span class="material-symbols-outlined" id="mic">mic</span> <label for="txt" id="btn">Send</label></div></div></div></body></html>
+        }</style><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/><script defer="defer" src="js/IndexLibrary.js"></script><link href="css/IndexLibrary.css" rel="stylesheet"></head><body class="bg-success"><div class="container"><div class="row m-2"><canvas id="myCanvas" class="border border-5 rounded-3 border-info"></canvas></div><button type="button" id="start1">スタート</button></div><script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script><script type="module" src="../Resources/main.js" defer="defer"></script><div class="container"><div class="wrapper"><div class="topbar"><div class="topbar-left" id="topbar-left"></div></div><div class="chat-page"><div class="chats"></div></div><div class="chat-input"><input placeholder="メッセジー..." id="txt"/> <label for="txt" id="btn">Send</label></div></div></div><div class="copy"><button type="button" id="git_copy">复制</button></div></body></html>

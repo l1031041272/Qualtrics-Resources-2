@@ -79,11 +79,27 @@ export default class IndexLibrary {
         };
 
     }
-    chatgpt_init = () => {
+    //使用curl，curl只能进行简单对话//
+    sendMsg = () => {//使用curl，curl只能进行简单对话
+        this.app?.sendMsg();
+    }
+    chatgpt_init = () => {//使用curl，curl只能进行简单对话
         this.app?.chatgpt_ready();
     }
-    chatgpt_reply = () => {
-        this.app?.chatgpt_reply();
+    // chatgpt_reply = (promptIndex: number,proposition: string) => {//使用curl，curl只能进行简单对话
+    //     this.app?.chatgpt_reply(promptIndex,proposition);
+    // }
+    handleChat = (promptIndex: number,proposition: string) => {//保证GPT回复期间无法发送
+        this.app?.handleChat(promptIndex,proposition);
+    }
+    // copyConversationToClipboard = (promptIndex: number,proposition: string) => () => {
+    //     this.app?.copyConversationToClipboard(promptIndex,proposition);
+    // }
+        /////////////////////////////////////////////////////////////
+
+    //尝试使用api进行assistant构建
+    assistant_init = () => {
+        this.app?.assistant_init();
     }
 }
 

@@ -47,6 +47,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import HtmlWebpackHarddiskPlugin from "html-webpack-harddisk-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CopyPlugin from "copy-webpack-plugin";
+import webpack from "webpack";
 
 // [定数] webpack の出力オプションを指定します
 // 'production' か 'development' を指定
@@ -283,6 +284,10 @@ const config: Configuration = {
         //dist内の余計なファイルを除去する
         //new CleanWebpackPlugin(),
         //new webpack.HotModuleReplacementPlugin(),
+        //增加变量，使其可以访问环境变量
+        new webpack.DefinePlugin({ // webpack自带该插件，无需单独安装
+                'process.env.OPENAI_API_KEY': JSON.stringify(process.env.OPENAI_API_KEY),  // 将属性转化为全局变量，让代码中可以正常访问
+        }),
     ],
 
     resolve: {
