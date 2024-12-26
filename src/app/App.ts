@@ -51,7 +51,7 @@ type MyModelSettings = {
 };
 
 const sysTime = document.querySelector('.topbar-left')!;
-const str1 = 'sk-6KPfEjIFfNlezqQBqCffT3BlbkFJZUSSbOn2PAmxKCKKE7B';
+const str1 = 'sk-6KPfEjIFfNlezqQBqCffT3BlbkFJZUSSbOn2';
 const API_KEY = str1;
 
 const openai = new OpenAI({
@@ -638,7 +638,7 @@ export class App {
                     {
                         headers: {
                             "Content-Type": "application/json",
-                            Authorization: `Bearer ${API_KEY}${'l'}`,
+                            Authorization: `Bearer ${API_KEY}${'PAmxKCKKE7Bl'}`,
                         },
                     }
                 );
