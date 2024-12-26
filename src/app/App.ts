@@ -685,7 +685,7 @@ export class App {
 
         //尝试使用api进行assistant构建
     assistant_init = async (): Promise<void> => {
-        console.log(process.env.OPENAI_API_KEY);
+        //console.log(process.env.OPENAI_API_KEY);
         //console.log("process.env.OPENAI_API_KEY");
     }
 

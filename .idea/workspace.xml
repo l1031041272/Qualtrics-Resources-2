@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.4.16将api密钥分开保存，避免github自动检测后删除">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Resources/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/IndexLibrary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/IndexLibrary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/IndexLibrary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MyCanvas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MyCanvas.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/qualtrics_lyu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/qualtrics_lyu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/quarltrics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/quarltrics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.ts" afterDir="false" />
-    </list>
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.12.27增加了提示，自动获取上下文" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,7 +143,7 @@
       <workItem from="1723031955101" duration="2751000" />
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
-      <workItem from="1734276634373" duration="39950000" />
+      <workItem from="1734276634373" duration="40326000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -331,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713240863006</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="2024.12.27增加了提示，自动获取上下文">
+      <created>1735226141556</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1735226141556</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +352,7 @@
     <MESSAGE value="将聊天框css重新设置就，更改了比例" />
     <MESSAGE value="2024.4.16从新编译了工程，将live2D比例重新设定" />
     <MESSAGE value="2024.4.16将api密钥分开保存，避免github自动检测后删除" />
-    <option name="LAST_COMMIT_MESSAGE" value="2024.4.16将api密钥分开保存，避免github自动检测后删除" />
+    <MESSAGE value="2024.12.27增加了提示，自动获取上下文" />
+    <option name="LAST_COMMIT_MESSAGE" value="2024.12.27增加了提示，自动获取上下文" />
   </component>
 </project>
