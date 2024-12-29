@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.12.27增加了提示，自动获取上下文">
-      <change afterPath="$PROJECT_DIR$/src/Resources/main备份.js" afterDir="false" />
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.12.28增加了开启下一对话，获取所有对话，按键开始，APP中没有进行改动">
+      <change afterPath="$PROJECT_DIR$/src/app/qualtrics_chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/AModel/AModel/amodel.model3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/AModel/AModel/amodel.model3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/IndexLibrary.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/IndexLibrary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/IndexLibrary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +149,7 @@
       <workItem from="1723031955101" duration="2751000" />
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
-      <workItem from="1734276634373" duration="66929000" />
+      <workItem from="1734276634373" duration="76090000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -344,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1735226690089</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="2024.12.28增加了开启下一对话，获取所有对话，按键开始，APP中没有进行改动">
+      <created>1735453062819</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1735453062819</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,6 +380,7 @@
     <MESSAGE value="2024.4.16从新编译了工程，将live2D比例重新设定" />
     <MESSAGE value="2024.4.16将api密钥分开保存，避免github自动检测后删除" />
     <MESSAGE value="2024.12.27增加了提示，自动获取上下文" />
-    <option name="LAST_COMMIT_MESSAGE" value="2024.12.27增加了提示，自动获取上下文" />
+    <MESSAGE value="2024.12.28增加了开启下一对话，获取所有对话，按键开始，APP中没有进行改动" />
+    <option name="LAST_COMMIT_MESSAGE" value="2024.12.28增加了开启下一对话，获取所有对话，按键开始，APP中没有进行改动" />
   </component>
 </project>
