@@ -83,8 +83,8 @@ export default class IndexLibrary {
     sendMsg = () => {//使用curl，curl只能进行简单对话
         this.app?.sendMsg();
     }
-    chatgpt_init = () => {//使用curl，curl只能进行简单对话
-        this.app?.chatgpt_ready();
+    chatgpt_init = (proposition: string) => {//使用curl，curl只能进行简单对话
+        this.app?.chatgpt_ready(proposition);
     }
     // chatgpt_reply = (promptIndex: number,proposition: string) => {//使用curl，curl只能进行简单对话
     //     this.app?.chatgpt_reply(promptIndex,proposition);

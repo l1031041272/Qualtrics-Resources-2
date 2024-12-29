@@ -420,7 +420,34 @@
 			],
 			"Happy": [
 				{
-					"File": "../motion/Happymotion.motion3.json"
+					"File": "../motion_happy/HappymotionA.motion3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_02.exp3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_03.exp3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_04.exp3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_05.exp3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_06.exp3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_07.exp3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_08.exp3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_09.exp3.json"
+				},
+				{
+					"File": "../motion_happy/Happy_10.exp3.json"
 				}
 			],
 			"Regret_Lip": [

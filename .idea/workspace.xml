@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.12.27增加了提示，自动获取上下文" />
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.12.27增加了提示，自动获取上下文">
+      <change afterPath="$PROJECT_DIR$/src/Resources/main备份.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/AModel/AModel/amodel.model3.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/AModel/AModel/amodel.model3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/IndexLibrary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/IndexLibrary.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,6 +84,7 @@
       <recent name="D:\code\project\js\Qualtrics-Resources-2\src\templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\project\js\Qualtrics-Resources-2\src\Resources" />
       <recent name="F:\Test_file\js\test3\src\Resources" />
     </key>
   </component>
@@ -143,7 +153,7 @@
       <workItem from="1723031955101" duration="2751000" />
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
-      <workItem from="1734276634373" duration="40719000" />
+      <workItem from="1734276634373" duration="66929000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -327,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1735226353042</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="2024.12.27增加了提示，自动获取上下文">
+      <created>1735226690089</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1735226690089</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -51,7 +51,7 @@ type MyModelSettings = {
 };
 
 const sysTime = document.querySelector('.topbar-left')!;
-const str1 = 'sk-6KPfEjIFfNlezqQBqCffT3BlbkFJZUSSbOn2';
+const str1 = 'sk-proj-PgY0kWR3I8HCYvFz8LbYB1QTcr0bwIfOkbcPXwZWGWuw5kuObLBwmN2hEgxLEV_djGPnZD9d6NT3BlbkFJGFpwU-';//
 const API_KEY = str1;
 
 const openai = new OpenAI({
@@ -308,7 +308,7 @@ export class App {
         // });
         console.log("App.ts")
         await this.pixiCanvas?.hiyori.setExpression("Happy_01");
-
+        $('#agent_visible_flag').html('1');
     };
 
     unmount = () => {
@@ -339,19 +339,28 @@ export class App {
     change_motion = (num: number) => {
         switch (num){
             case 0:
-                this.pixiCanvas?.hiyori.forceMotion("All", 3);
+                this.pixiCanvas?.hiyori.forceMotion("All", void 3);
                 break;
             case 1:
-                this.pixiCanvas?.hiyori.forceMotion("Happy", void 3);
+                this.pixiCanvas?.hiyori.forceMotion("All", void 3);
                 break;
             case 2:
                 this.pixiCanvas?.hiyori.forceMotion("All", void 7);
                 break;
             case 3:
-                this.pixiCanvas?.hiyori.forceMotion("All",  9);//2，4,6,8,10，12，14，16.17，18，19没动作可以用作思考 3有思考的感觉 11,5，15同一个动作，脖子很奇怪 7有思考的感觉 9叉腰还行 13向下看，更适合用户输入后看一下 0还行可以用作思考
+                this.pixiCanvas?.hiyori.forceMotion("All",  void 9);//2，4,6,8,10，12，14，16.17，18，19没动作可以用作思考 3有思考的感觉 11,5，15同一个动作，脖子很奇怪 7有思考的感觉 9叉腰还行 13向下看，更适合用户输入后看一下 0还行可以用作思考
                 break;                                                      //3，3，7，9，0
             case 4:
                 this.pixiCanvas?.hiyori.forceMotion("All", void 0);
+                break;
+            case 5:
+                this.pixiCanvas?.hiyori.forceMotion("Happy", void 0);
+                break;
+            case 6:
+                this.pixiCanvas?.hiyori.forceMotion("Happy", void 0);
+                break;
+            case 7:
+                this.pixiCanvas?.hiyori.forceMotion("Happy", void 0);
                 break;
         }
     }
@@ -432,35 +441,41 @@ export class App {
 
         // 5. 定义 system Prompt 列表
         const prompts = [
-            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。你的任务是说服在日本对日本核电站重启持谨慎态度的日本用户。
-            在这次对话中，用户特别关注的是[${proposition}]。请以连贯的话语形式展开论述，而不是分点陈述。你先以理解和同理的口吻认可用户担忧的合理性，以商讨的语气提供反例，从用户关注命题的反命题方向进行论述。
+            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。该日本用户对核电站重启保持反对态度，你的任务是提高该日本用户对核电站重启的接受程度。你的说话风格应当像朋友说话一样，避免使用敬语。
+            在这次对话中，用户特别关注的是[${proposition}]。请以连贯的话语形式展开论述，而不是分点陈述。你先以理解和同理的口吻认可用户担忧的合理性，但同时否定该命题，以商讨的语气提供反例，从用户关注命题的反命题方向进行论述。
             特别注意：语言务必要简洁，输出字数尽量在100字以内。请务必以连贯的段落和完整的文章形式来组织你的回答，避免使用任何形式的要点列举或分条论述。除非用户明确要求列举要点，否则所有内容都应该以流畅的叙述性语言呈现。
-            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。
-            你的论述风格应当像朋友说话一样。结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
-            使用日语回答`,
+            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。当用户使用其他语言时，要劝说他回到原来的对话中。
+            结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
+            只使用日语回答`,
 
-            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。你的任务是说服在日本对日本核电站重启持谨慎态度的日本用户。
+            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。该日本用户对核电站重启保持中立态度，你的任务是提高该日本用户对核电站重启的接受程度。你的说话风格应当像朋友说话一样，避免使用敬语。
             在这次对话中，用户特别关注的是[${proposition}]，以此为中心展开对话。请以连贯的话语形式展开论述，而不是分点陈述。当[${proposition}]命题是消极的情况下，在承认命题的合理性的同时，以商讨的语气提供反例，从用户关注命题的反命题方向进行说服。当[${proposition}]命题是积极的情况下，则在该命题的背景下将来应该如何发展进行表述，但注意只说积极的内容。
             特别注意：语言务必要简洁，输出字数尽量在100字以内。请务必以连贯的段落和完整的文章形式来组织你的回答，避免使用任何形式的要点列举或分条论述。除非用户明确要求列举要点，否则所有内容都应该以流畅的叙述性语言呈现。
-            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。
-            你的论述风格应当像朋友说话一样。结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
-            使用日语回答`,
+            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。当用户使用其他语言时，要劝说他回到原来的对话中。
+            你的说话风格应当像朋友说话一样，避免使用敬语。结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
+            只使用日语回答`,
 
-            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。你的任务是说服在日本对日本核电站重启持谨慎态度的日本用户。
-            在这次对话中，用户特别关注的是[${proposition}]，以此为中心展开对话。请以连贯的话语形式展开论述，而不是分点陈述。当[${proposition}]命题是消极的情况下，在承认命题的合理性的同时，探讨将来应该如何改善。当[${proposition}]命题是积极的情况下，则在该命题的背景下将来应该如何发展进行表述，但注意只说积极的内容。
+            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。该日本用户基本同意接受核电站重启，你的任务是提高该日本用户对核电站重启的接受程度。你的说话风格应当像朋友说话一样，避免使用敬语。
+            在这次对话中，用户特别关注的是[${proposition}]，以此为中心展开对话。请以连贯的话语形式展开论述，而不是分点陈述。当[${proposition}]命题是消极的情况下，在承认命题的合理性的同时，探讨该命题将来应该如何改善。当[${proposition}]命题是积极的情况下，则在该命题的背景下将来应该如何发展进行表述，但注意只说积极的内容。
             特别注意：语言务必要简洁，输出字数尽量在100字以内。请务必以连贯的段落和完整的文章形式来组织你的回答，避免使用任何形式的要点列举或分条论述。除非用户明确要求列举要点，否则所有内容都应该以流畅的叙述性语言呈现。
-            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。
-            你的论述风格应当像朋友说话一样。结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
-            使用日语回答`,
+            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。当用户使用其他语言时，要劝说他回到原来的对话中。
+            你的说话风格应当像朋友说话一样，避免使用敬语。结尾可以采用“你觉得怎么样呢？”，“这样是不是会更好？”等反问，疑问的方式，说出你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
+            只使用日语回答`,
 
-            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。你的任务是说服在日本对日本核电站重启持谨慎态度的日本用户。
+            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。你的任务是说服在日本对日本核电站重启持谨慎态度的日本用户。你的说话风格应当像朋友说话一样，避免使用敬语。
             在这次对话中，用户特别关注的是[${proposition}]。请以连贯的话语形式展开论述，而不是分点陈述。你先以理解和同理的口吻认可用户担忧的合理性，以商讨的语气提供反例，从用户关注命题的反命题方向进行论述。
             特别注意：语言务必要简洁，输出字数尽量在100字以内。请务必以连贯的段落和完整的文章形式来组织你的回答，避免使用任何形式的要点列举或分条论述。除非用户明确要求列举要点，否则所有内容都应该以流畅的叙述性语言呈现。
-            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。
-            你的论述风格应当像朋友说话一样。结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
-            使用日语回答`,
+            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。当用户使用其他语言时，要劝说他回到原来的对话中。
+            你的说话风格应当像朋友说话一样，避免使用敬语。结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
+            只使用日语回答`,
 
-            `把用户当作朋友，请跟用户谈论日常生活的话题吧。`
+            `把用户当作朋友，请跟用户谈论[${proposition}]的话题吧。只使用日语回答。当用户使用其他语言时，也要使用日语回答。`,
+
+            `The user is saying hello to you, say hello back!
+            In this conversation, the user is particularly concerned about [${proposition}].
+            Special note: Language must be concise.
+            Your language style should be like talking to a friend.
+            Please respond in Japanese.`
         ];
 
         // 6. 根据 promptIndex 选择对应的 prompt
@@ -481,7 +496,9 @@ export class App {
 
         // 8. 构建完整的请求体
         const finalPayload = {
-            model: "gpt-3.5-turbo",
+            //model: "gpt-3.5-turbo",
+            model: "gpt-4o",
+            //model: "gpt-4o-mini",
             messages: finalMessages
         };
 
@@ -564,25 +581,26 @@ export class App {
             chatPage.scrollTop = chatPage.scrollHeight - chatPage.clientHeight;
         }console.log('sendMsg完成');
     };
-    chatgpt_ready = async (): Promise<void> => {
+    chatgpt_ready = async (proposition: string): Promise<void> => {
         console.log("chatgpt初始化完成");
         try {
             const response = await axios.post(
                 URL1,
                 {
                                 "model": "gpt-3.5-turbo",
+                                //"model": "gpt-4o",
                                 "messages": [
-                                    //{ "role": "system", "content": "现在由于新冠病毒毒性减弱，日本已经不会强制民众戴口罩出行，我想让你扮演医疗顾问的角色，对不愿意在出行时戴口罩的用户进行说服，使用户知道带口罩的重要性。对于愿意在出行中带口罩的用户，您可以保持赞同和表扬，并探讨带口罩的重要性。并且，请只是用一段话输出你的观点，输出字数尽量少。但是当用户讨论话题和健康咨询无关时，要提醒他不要跑题。" },
-                                    //{ "role": "system", "content": "Due to the reduced virulence of the novel coronavirus, Japan no longer mandates the wearing of masks for the general public. However, as a medical advisor, I would like to emphasize the importance of wearing masks while traveling and persuade those who are reluctant to do so. Wearing masks serves as a crucial preventive measure, helping to minimize the spread of respiratory droplets and protect both the wearer and those around them from potential infection. For individuals who willingly wear masks during their outings, I commend and support their decision, as it demonstrates their understanding of the significance of mask usage. Let's continue to encourage everyone to prioritize mask-wearing as an essential practice for public health. Lastly, if discussions veer off-topic or away from health-related inquiries, I kindly remind users to stay focused on the subject at hand.Please respond in Japanese." },
-                                    { "role": "system", "content": "The development of fully autonomous driving cars is progressing rapidly, but some individuals harbor concerns about the potential negative impacts of this technology, leading to a sense of resistance. As a consultant, your role is to actively persuade people to embrace this innovation. Throughout the persuasion process, address any concerns or negative issues raised by users, while skillfully guiding the conversation towards a positive direction. Affirm and agree with positive topics initiated by users, steering the discussion further towards optimistic aspects. However, if users deviate from the topic of fully autonomous driving cars, prompt them to return to the original subject and avoid discussing unrelated matters.Please respond in Japanese." },
-                                    { "role": "system", "content": "And, please output your point of view in only one paragraph, with as few words of output as possible. " },
-                                    { "role": "user", "content": "こんにちは" }
+                                    { "role": "system", "content": `The user is particularly concerned about [${proposition}] and wants to discuss this issue with you. Your goal is to greet the user and facilitate a smooth conversation.
+                                                                    Special note: Language must be concise.
+                                                                    Your language style should be like talking to a friend.
+                                                                    Please respond in Japanese.` },
+                                    { "role": "user", "content": "こんにちは！" }
                                 ]
                             },
                 {
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${API_KEY}${'l'}`,
+                        Authorization: `Bearer ${API_KEY}${'JdbeyU7USLbAWwfq65wMS1lKIgv6fTQoFMoNOIWQa8U8XHIWiYdEPlTKZrfMKit6FWgA'}`,
                     },
                 }
             );
@@ -613,32 +631,13 @@ export class App {
         isReplying = true;
         console.log(textgpt);
             try {
-            //     const response = await axios.post(
-            //         URL1,
-            //         {
-            //         "model": "gpt-3.5-turbo",
-            //         "messages": [
-            //             //{ "role": "system", "content": "现在由于新冠病毒毒性减弱，日本已经不会强制民众戴口罩出行，我想The development of fully autonomous driving cars is progressing rapidly, but some individuals ha让你扮演医疗顾问的角色，对不愿意在出行时戴口罩的用户进行说服，使用户知道带口罩的重要性。对于愿意在出行中带口罩的用户，您可以保持赞同和表扬，并探讨带口罩的重要性。并且，请只是用一段话输出你的观点，输出字数尽量少。但是当用户讨论话题和健康咨询无关时，要提醒他不要跑题。" },
-            //             //{ "role": "system", "content": "Due to the reduced virulence of the novel coronavirus, Japan no longer mandates the wearing of masks for the general public. However, as a medical advisor, I would like to emphasize the importance of wearing masks while traveling and persuade those who are reluctant to do so. Wearing masks serves as a crucial preventive measure, helping to minimize the spread of respiratory droplets and protect both the wearer and those around them from potential infection. For individuals who willingly wear masks during their outings, I commend and support their decision, as it demonstrates their understanding of the significance of mask usage. Let's continue to encourage everyone to prioritize mask-wearing as an essential practice for public health. Lastly, if discussions veer off-topic or away from health-related inquiries, I kindly remind users to stay focused on the subject at hand.Please respond in Japanese." },
-            //             { "role": "system", "content": "rbor concerns about the potential negative impacts of this technology, leading to a sense of resistance. As a consultant, your role is to actively persuade people to embrace this innovation. Throughout the persuasion process, address any concerns or negative issues raised by users, while skillfully guiding the conversation towards a positive direction. Affirm and agree with positive topics initiated by users, steering the discussion further towards optimistic aspects. However, if users deviate from the topic of fully autonomous driving cars, prompt them to return to the original subject and avoid discussing unrelated matters.Please respond in Japanese." },
-            //             { "role": "system", "content": "And, please output your point of view in only one paragraph, with as few words of output as possible. " },
-            //             { "role": "user", "content": textgpt }
-            //         ]
-            //     },
-            //     {
-            //         headers: {
-            //             "Content-Type": "application/json",
-            //             Authorization: `Bearer ${API_KEY}${'l'}`,
-            //         },
-            //     }
-            // );
                 const response = await axios.post(
                     URL1,
                     chatJSON,
                     {
                         headers: {
                             "Content-Type": "application/json",
-                            Authorization: `Bearer ${API_KEY}${'PAmxKCKKE7Bl'}`,
+                            Authorization: `Bearer ${API_KEY}${'JdbeyU7USLbAWwfq65wMS1lKIgv6fTQoFMoNOIWQa8U8XHIWiYdEPlTKZrfMKit6FWgA'}`,
                         },
                     }
                 );
