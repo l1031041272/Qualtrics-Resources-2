@@ -380,10 +380,40 @@
             font-size: 14px;       /* 字体大小 */
             cursor: pointer;       /* 鼠标指针 */
             transition: 0.3s;      /* 过渡效果 */
+            position: absolute;  /* 添加：绝对定位 */
+            bottom: 10px;       /* 添加：距底部10px */
+            right: 10px;        /* 添加：距右侧10px */
+            z-index: 100;       /* 添加：确保在上层 */
         }
 
         #next1:hover {
             background: #0957a5;   /* 悬停时颜色变深 */
+        }
+
+        /* 添加一个新的主容器样式 */
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 20px;  /* 左右部分之间的间距 */
+            padding: 20px;
+        }
+
+        /* 左侧内容容器 */
+        .left-content {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 右侧聊天框容器 */
+        .right-content {
+            flex: 1;  /* 占据剩余空间 */
+        }
+        .row.m-2 {
+            position: relative;
         }
     </style>
     <!-- Google Fonts Links - Montserrat -->
@@ -407,133 +437,141 @@
     <!--以上为添加聊天框-->
 </head>
 <body class="bg-success">
-<div class="container">
-    <div class="row m-2">
-        <canvas id="myCanvas" class="border border-5 rounded-3 border-info"></canvas>
-    </div>
 
-    <!--div class="row m-2">
-        <button type="button" id="expansion" class="col">モデル拡大</button>
-        <button type="button" id="shrink" class="col">モデル縮小</button>
-    </div-->
-    <!--以下为指定模型动作和表情-->
-    <!--div class="row m-2">
-        <select class ="col" id="selectMotion">
-        </select>
-        <button type="button" id="startMotion" class="col">モーション再生</button>
-    </div>
-    <button type="button" id="setExpression2" >表情をセット</button>
-    <button type="button" id="setExpression3" >表情をセット2</button-->
-    <button type="button" id="next1" >次へ</button>
-    <!--div class="row m-2">
-        <select class ="col" id="selectExpression">
-        </select>
-        <button type="button" id="setExpression" class="col">表情をセット</button>
-    </div-->
+<div class="main-container">
+    <div class="left-content">
+        <div class="container">
+            <div class="row m-2">
+                <canvas id="myCanvas" class="border border-5 rounded-3 border-info"></canvas>
+            </div>
 
-
-</div>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-<script type="module" src="../Resources/main.js" defer></script>
-
-<!--以下为遮罩-->
-<div id="agent_visible_flag">0</div>
-<div id="overlay">
-    <div id="overlayWindow">
-        <div class="loader"></div>
-        <div id="overlay_contents">
-            インタラクションを開始します。
-            <button id="start_button">開始</button>
-        </div>
-
-    </div>
-</div>
-
-<!--以下为添加聊天框-->
-<div class="container">
-    <div class="wrapper">
-        <div class="topbar">
-            <div class="topbar-left" id="topbar-left"></div>
-            <div class="topbar-right" id="topbar-right">当前</div>
-            <!--div class="topbar-right">
-                <span class="material-symbols-outlined"> signal_cellular_alt </span>
-                <span class="material-symbols-outlined"> wifi </span>
-                <span class="material-symbols-outlined"> battery_horiz_050 </span>
+            <!--div class="row m-2">
+                <button type="button" id="expansion" class="col">モデル拡大</button>
+                <button type="button" id="shrink" class="col">モデル縮小</button>
             </div-->
+            <!--以下为指定模型动作和表情-->
+            <!--div class="row m-2">
+                <select class ="col" id="selectMotion">
+                </select>
+                <button type="button" id="startMotion" class="col">モーション再生</button>
+            </div>
+            <button type="button" id="setExpression2" >表情をセット</button>
+            <button type="button" id="setExpression3" >表情をセット2</button-->
+            <button type="button" id="next1" >次へ</button>
+            <!--div class="row m-2">
+                <select class ="col" id="selectExpression">
+                </select>
+                <button type="button" id="setExpression" class="col">表情をセット</button>
+            </div-->
+
+
         </div>
-        <!--div class="header">
-            <span class="material-symbols-outlined"> menu </span>
-            <p>ace.chat</p>
-            <span class="material-symbols-outlined"> filter_alt </span>
-        </div-->
-        <div class="chat-page">
-            <div class="chats">
+    </div>
+
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+        <script type="module" src="../Resources/main.js" defer></script>
+
+        <!--以下为遮罩-->
+        <div id="agent_visible_flag">0</div>
+        <div id="overlay">
+            <div id="overlayWindow">
+                <div class="loader"></div>
+                <div id="overlay_contents">
+                    インタラクションを開始します。
+                    <button id="start_button">開始</button>
+                </div>
+
             </div>
         </div>
-        <div class="chat-input">
-            <!--img src="./images/user1.jpg" alt="" /-->
-            <input type="text" placeholder="メッセジー..." id="txt" />
 
-            <label for="txt" id="btn">Send</label>
+        <!--以下为添加聊天框-->
+    <div class="right-content">
+        <div class="container">
+            <div class="wrapper">
+                <div class="topbar">
+                    <div class="topbar-left" id="topbar-left"></div>
+                    <div class="topbar-right" id="topbar-right">当前</div>
+                    <!--div class="topbar-right">
+                        <span class="material-symbols-outlined"> signal_cellular_alt </span>
+                        <span class="material-symbols-outlined"> wifi </span>
+                        <span class="material-symbols-outlined"> battery_horiz_050 </span>
+                    </div-->
+                </div>
+                <!--div class="header">
+                    <span class="material-symbols-outlined"> menu </span>
+                    <p>ace.chat</p>
+                    <span class="material-symbols-outlined"> filter_alt </span>
+                </div-->
+                <div class="chat-page">
+                    <div class="chats">
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <!--img src="./images/user1.jpg" alt="" /-->
+                    <input type="text" placeholder="メッセジー..." id="txt" />
+
+                    <label for="txt" id="btn">Send</label>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <button type="button" id="git_copy">复制</button>
         </div>
     </div>
+        <!--以上为添加聊天框-->
+        <!--fdf-->
+        <!-- <script>
+            //http://localhost:40080
+            //http://192.168.3.10:40080
+            const serverURL = "http://localhost:50021";
+            const debug = false;
+            const modelPath = "/Resources/AModel/AModel/amodel.model3.json";
+
+            //550, 900, 0.235, 0, -20 モデル全身/
+            //550, 700, 0.45, 0, 500 モデル顔中心
+            //225, 350, 0.25, 0, 250
+            const position = {
+                boxWidth: 550,
+                boxHeight: 700,
+                modelScale: 0.2,
+                modelX: 0,
+                modelY: 500,
+            };
+            let indexLibrary = null;
+
+            document.addEventListener(
+                "DOMContentLoaded",
+                () => {
+
+
+                    // indexLibrary.addEventListener("finish", () => {
+                    //     console.log("リスナー");
+                    //     console.log(myLibrary.getResult());
+                    // });
+
+                    // myLibrary.onload();
+                },
+                false
+            );
+
+            //--- cubism SDK 初期化
+            window.addEventListener(
+                "load",
+                () => {
+                    console.log("ロード");
+                    indexLibrary = new IndexLibrary(debug,serverURL,modelPath,position);
+                    indexLibrary.onload();
+                },
+                false
+            );
+            //-
+
+            window.addEventListener("beforeunload",()=>{
+                console.log("アンロード");
+                indexLibrary.onUnload();
+            });
+        </--script-->
 </div>
-<div class="copy">
-    <button type="button" id="git_copy">复制</button>
-</div>
-<!--以上为添加聊天框-->
-<!--fdf-->
-<!-- <script>
-    //http://localhost:40080
-    //http://192.168.3.10:40080
-    const serverURL = "http://localhost:50021";
-    const debug = false;
-    const modelPath = "/Resources/AModel/AModel/amodel.model3.json";
-
-    //550, 900, 0.235, 0, -20 モデル全身/
-    //550, 700, 0.45, 0, 500 モデル顔中心
-    //225, 350, 0.25, 0, 250
-    const position = {
-        boxWidth: 550,
-        boxHeight: 700,
-        modelScale: 0.2,
-        modelX: 0,
-        modelY: 500,
-    };
-    let indexLibrary = null;
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        () => {
-
-
-            // indexLibrary.addEventListener("finish", () => {
-            //     console.log("リスナー");
-            //     console.log(myLibrary.getResult());
-            // });
-
-            // myLibrary.onload();
-        },
-        false
-    );
-
-    //--- cubism SDK 初期化
-    window.addEventListener(
-        "load",
-        () => {
-            console.log("ロード");
-            indexLibrary = new IndexLibrary(debug,serverURL,modelPath,position);
-            indexLibrary.onload();
-        },
-        false
-    );
-    //-
-
-    window.addEventListener("beforeunload",()=>{
-        console.log("アンロード");
-        indexLibrary.onUnload();
-    });
-</--script-->
 </body>
 </html>
