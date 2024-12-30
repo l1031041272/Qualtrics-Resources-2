@@ -11,8 +11,9 @@ const modelPath = "/Resources/AModel/AModel/amodel.model3.json";
 //550, 700, 0.45, 0, 500 モデル顔中心
 //225, 350, 0.25, 0, 250
 //550, 700, 0.15, 0, 500
+//300, 700, 0.13, 0, 300
 const position = {
-    boxWidth: 300,
+    boxWidth: 360,
     boxHeight: 700,
     modelScale: 0.13,
     modelX: 0,

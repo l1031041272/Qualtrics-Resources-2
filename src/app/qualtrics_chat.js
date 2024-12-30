@@ -68,10 +68,10 @@ Qualtrics.SurveyEngine.addOnReady(function()
     var value4 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions2');
 
     var proposition = [
-        "对社会" + value4,
-        "对社会" + value3,
-        "对自身" + value2,
-        "对自身" + value1
+         value4 + "对社会的影响",
+         value3 + "对社会的影响",
+         value2 + "对自身的影响",
+         value1 + "对自身的影响"
     ];
     var should_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('should_userAttitude');
     console.log("should_userAttitude:", should_userAttitude);
@@ -118,7 +118,7 @@ Qualtrics.SurveyEngine.addOnReady(function()
     function updateTopbar(text, number) {
         const topbarRight = document.getElementById('topbar-right');
         if (topbarRight) {
-            topbarRight.textContent = "当" + text + "　残り" + number + "個";
+            topbarRight.textContent = text + "　残り" + number + "個";
         }
     }
 
@@ -163,7 +163,7 @@ Qualtrics.SurveyEngine.addOnReady(function()
         btn.addEventListener('click', () => {
             if (!txt.value.trim()) {  // 检查输入是否为空
                 // 添加红色边框
-                txt.style.border = '2px solid red';
+                txt.style.border = '2px solid red ';
 
                 // 300ms后恢复原样
                 setTimeout(() => {
@@ -206,14 +206,6 @@ Qualtrics.SurveyEngine.addOnReady(function()
         console.log(formattedConversation);  // 打印格式化后的对话
     }
 
-    const copy = document.getElementById("git_copy");
-    copy.addEventListener("click",event => {
-
-        copyConversationToClipboard();
-    })
-
-//测试用字符串，正式删掉
-
 //下一个按钮
     const next = document.getElementById("next1");
     next.style.visibility = 'hidden';     // 隐藏但保留空间
@@ -232,7 +224,7 @@ Qualtrics.SurveyEngine.addOnReady(function()
         }
         else
         {
-            updateTopbar("当前对话结束后，前往下一页",next_flag);
+            updateTopbar("確信してください",next_flag);
         }
 
         //indexLibrary.App_set_motion(1);//动作还没有设计好，设计好后去amodel.model3.json修改分组和路径
