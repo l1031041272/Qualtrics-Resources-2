@@ -62,7 +62,7 @@ startButton?.addEventListener('click', function() {
     next_flag = next_flag - 1;
     if (overlay) overlay.style.display = 'none';
     if (overlayWindow) overlayWindow.style.display = 'none';
-    indexLibrary.chatgpt_init('放射性廃棄物の長期管理が将来の世代に大きな負担を残す可能性が増す');
+    indexLibrary.chatgpt_init('原子力発電所の再稼働によって、事故発生時に壊滅的な影響を及ぼすリスクが高まる');
     updateTopbar("ABCABCABC",next_flag);
 });
 
@@ -122,7 +122,7 @@ btn?.addEventListener('click', () => {
     }
 
     // 输入不为空时执行原有操作
-    indexLibrary.handleChat(1, '放射性廃棄物の長期管理が将来の世代に大きな負担を残す可能性が増す');
+    indexLibrary.handleChat(7, '事故発生時に壊滅的な影響を及ぼすリスクが高まる');
 
     if(next_flag > 0) {
         next.style.visibility = 'visible';    // 显示按钮

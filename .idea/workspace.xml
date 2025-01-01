@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.12.30修改了GPT提示">
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.12.30修改了模型动作，在mycanvas  const pixiOptions: IApplicationOptions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Resources/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/IndexLibrary.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/MyCanvas.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/MyCanvas.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/qualtrics_chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/qualtrics_chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/IndexLibrary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/IndexLibrary.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/index_qualtrics.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index_qualtrics.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +151,7 @@
       <workItem from="1723031955101" duration="2751000" />
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
-      <workItem from="1734276634373" duration="90637000" />
+      <workItem from="1734276634373" duration="98110000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -373,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1735552438746</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="2024.12.30修改了模型动作，在mycanvas  const pixiOptions: IApplicationOptions">
+      <created>1735578859361</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1735578859361</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,6 +414,7 @@
     <MESSAGE value="2024.12.29使GPT在说话过程中可以使用emojis" />
     <MESSAGE value="2024.12.29" />
     <MESSAGE value="2024.12.30修改了GPT提示" />
-    <option name="LAST_COMMIT_MESSAGE" value="2024.12.30修改了GPT提示" />
+    <MESSAGE value="2024.12.30修改了模型动作，在mycanvas  const pixiOptions: IApplicationOptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="2024.12.30修改了模型动作，在mycanvas  const pixiOptions: IApplicationOptions" />
   </component>
 </project>
