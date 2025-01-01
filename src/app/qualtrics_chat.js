@@ -8,7 +8,7 @@ let next_flag = 4;
 Qualtrics.SurveyEngine.addOnload(function()
 {
     /*ページが読み込まれたときに実行するJavaScriptをここに配置してください*/
-
+    this.hideNextButton();
 
     const position = {
         boxWidth: 300,
@@ -68,10 +68,10 @@ Qualtrics.SurveyEngine.addOnReady(function()
     var value4 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions2');
 
     var proposition = [
-         value4 + "对社会的影响",
-         value3 + "对社会的影响",
-         value2 + "对自身的影响",
-         value1 + "对自身的影响"
+        value4 + "ことの社会への影響",
+        value3 + "ことの社会への影響",
+        value2 + "ことの自身への影響",
+        value1 + "ことの自身への影響"
     ];
     var should_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('should_userAttitude');
     console.log("should_userAttitude:", should_userAttitude);
@@ -79,10 +79,10 @@ Qualtrics.SurveyEngine.addOnReady(function()
     console.log("want_userAttitude:", want_userAttitude);
 
     var userAttitude = [
-        want_userAttitude,
-        want_userAttitude,
         should_userAttitude,
-        should_userAttitude
+        should_userAttitude,
+        want_userAttitude,
+        want_userAttitude
     ];
 
     console.log("userAttitude:", userAttitude);
@@ -133,7 +133,40 @@ Qualtrics.SurveyEngine.addOnReady(function()
         });
     }
 
+    /*********************************************************/
+    function copyConversationToClipboard() {
+        // 1. 获取所有聊天内容及时间
+        const userMessages = document.querySelectorAll(".user-msg");
+        const gptMessages = document.querySelectorAll(".chat-gpt-msg");
 
+        let formattedConversation = '';
+
+        // 遍历每个消息容器
+        const allContainers = Array.prototype.slice.call(document.querySelectorAll(".chat-user, .chat-gpt-msg"));
+
+        allContainers.forEach(function(container) {
+            const time = container.querySelector(".time").innerHTML;
+
+            if (container.querySelector(".copy-msg-USER")) {
+                const text = container.querySelector(".copy-msg-USER").innerHTML;
+                formattedConversation += 'user: ' + text + ' [' + time + ']\n';
+            } else if (container.querySelector(".copy-msg-GPT")) {
+                const text = container.querySelector(".copy-msg-GPT").innerHTML;
+                formattedConversation += 'assistant: ' + text + ' [' + time + ']\n';
+            }
+        });
+
+        // 获取并添加总经过时间
+        const topbarLeft = document.getElementById('topbar-left');
+        if (topbarLeft) {
+            formattedConversation += '\n' + topbarLeft.innerHTML;
+        }
+
+        Qualtrics.SurveyEngine.setEmbeddedData('userChat', formattedConversation);
+        var userChat = Qualtrics.SurveyEngine.getEmbeddedData('userChat');
+        console.log(formattedConversation);
+        console.log(userChat);
+    }
 
     /*添加聊天内容*/
 // 1. User Toggle
@@ -183,27 +216,10 @@ Qualtrics.SurveyEngine.addOnReady(function()
                 next.style.pointerEvents = 'auto';    // 允许点击
             }
             else {
-                next.style.visibility = 'hidden';     // 隐藏但保留空间
-                next.style.pointerEvents = 'none';    // 禁止点击
+                next.style.visibility = 'visible';    // 显示按钮
+                next.style.pointerEvents = 'auto';    // 允许点击
             }
         });
-    }
-//原来按键复制内容
-    function copyConversationToClipboard() {
-        // 1. 获取所有聊天内容段落
-        const allParagraphs = document.querySelectorAll("p.copy-msg-USER, p.copy-msg-GPT");
-
-        // 创建格式化的对话字符串
-        let formattedConversation = '';
-        allParagraphs.forEach(paragraph => {
-            if (paragraph.classList.contains("copy-msg-USER")) {
-                formattedConversation += `user: ${paragraph.innerText}\n`;
-            } else if (paragraph.classList.contains("copy-msg-GPT")) {
-                formattedConversation += `assistant: ${paragraph.innerText}\n`;
-            }
-        });
-
-        console.log(formattedConversation);  // 打印格式化后的对话
     }
 
 //下一个按钮
@@ -219,15 +235,23 @@ Qualtrics.SurveyEngine.addOnReady(function()
 
         if(next_flag > 0){
             indexLibrary.chatgpt_init(proposition[next_flag]);
-            console.log('12312312312',proposition);
+            console.log('12312312312',proposition[next_flag]);
             updateTopbar(proposition[next_flag],next_flag);
         }
         else
         {
-            updateTopbar("確信してください",next_flag);
+            indexLibrary.chatgpt_init(proposition[next_flag]);
+            console.log('12312312312',proposition[next_flag]);
+            updateTopbar(proposition[next_flag],next_flag);
+            document.getElementById('next1').textContent = '会話終了';
+
+            if(next_flag == -1){
+                updateTopbar("読み込み中...",0);
+                copyConversationToClipboard();
+                this.clickNextButton();
+            }
         }
 
-        //indexLibrary.App_set_motion(1);//动作还没有设计好，设计好后去amodel.model3.json修改分组和路径
     })
 
 //

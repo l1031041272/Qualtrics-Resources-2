@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2024.12.30修改了模型动作，在mycanvas  const pixiOptions: IApplicationOptions">
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.1.1添加了新的日常对话提示，修改了部分提示语">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/IndexLibrary.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/IndexLibrary.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/qualtrics_chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/qualtrics_chat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +148,7 @@
       <workItem from="1723031955101" duration="2751000" />
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
-      <workItem from="1734276634373" duration="98110000" />
+      <workItem from="1734276634373" duration="112294000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -377,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1735578859361</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="2025.1.1添加了新的日常对话提示，修改了部分提示语">
+      <created>1735718612939</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1735718612939</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,6 +419,7 @@
     <MESSAGE value="2024.12.29" />
     <MESSAGE value="2024.12.30修改了GPT提示" />
     <MESSAGE value="2024.12.30修改了模型动作，在mycanvas  const pixiOptions: IApplicationOptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="2024.12.30修改了模型动作，在mycanvas  const pixiOptions: IApplicationOptions" />
+    <MESSAGE value="2025.1.1添加了新的日常对话提示，修改了部分提示语" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025.1.1添加了新的日常对话提示，修改了部分提示语" />
   </component>
 </project>
