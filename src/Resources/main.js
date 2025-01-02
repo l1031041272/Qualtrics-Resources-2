@@ -122,7 +122,7 @@ btn?.addEventListener('click', () => {
     }
 
     // 输入不为空时执行原有操作
-    indexLibrary.handleChat(7, '事故発生時に壊滅的な影響を及ぼすリスクが高まる');
+    indexLibrary.handleChat(10, '雇用機会が創出される');
 
     if(next_flag > 0) {
         next.style.visibility = 'visible';    // 显示按钮
