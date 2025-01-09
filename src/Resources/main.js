@@ -134,27 +134,105 @@ btn?.addEventListener('click', () => {
     }
 });
 //原来按键复制内容
-function copyConversationToClipboard() {
-    // 1. 获取所有聊天内容段落
-    const allParagraphs = document.querySelectorAll("p.copy-msg-USER, p.copy-msg-GPT");
+// function copyConversationToClipboard() {
+//     // 1. 获取所有聊天内容段落
+//     const allParagraphs = document.querySelectorAll("p.copy-msg-USER, p.copy-msg-GPT");
+//
+//     // 创建格式化的对话字符串
+//     let formattedConversation = '';
+//     allParagraphs.forEach(paragraph => {
+//         if (paragraph.classList.contains("copy-msg-USER")) {
+//             formattedConversation += `user: ${paragraph.innerText}\n`;
+//         } else if (paragraph.classList.contains("copy-msg-GPT")) {
+//             formattedConversation += `assistant: ${paragraph.innerText}\n`;
+//         }
+//     });
+//
+//     console.log(formattedConversation);  // 打印格式化后的对话
+// }
 
-    // 创建格式化的对话字符串
+let lastMessageIndex = -1;  // 用于记录上次最后一条消息的位置
+var proposition = ['123123',
+                    '123123123',
+                    '5646',
+                    '789789'
+
+]
+
+function copyConversationToClipboard(next_flag) {
+    const allContainers = Array.prototype.slice.call(document.querySelectorAll(".chat-user, .chat-gpt-msg"));
     let formattedConversation = '';
-    allParagraphs.forEach(paragraph => {
-        if (paragraph.classList.contains("copy-msg-USER")) {
-            formattedConversation += `user: ${paragraph.innerText}\n`;
-        } else if (paragraph.classList.contains("copy-msg-GPT")) {
-            formattedConversation += `assistant: ${paragraph.innerText}\n`;
+    let currentConversation = '';
+
+    // 获取当前主题
+    currentConversation += '当前主题: ' + proposition[next_flag] + '\n\n';
+
+    // 获取当前轮次的消息
+    const currentRoundMessages = allContainers.filter((_, index) => {
+        return lastMessageIndex === -1 || index > lastMessageIndex;
+    });
+
+    // 保存所有对话记录
+    allContainers.forEach(container => {
+        const time = container.querySelector(".time").innerHTML;
+        if (container.querySelector(".copy-msg-USER")) {
+            const text = container.querySelector(".copy-msg-USER").innerHTML;
+            formattedConversation += 'user: ' + text + ' [' + time + ']\n';
+        } else if (container.querySelector(".copy-msg-GPT")) {
+            const text = container.querySelector(".copy-msg-GPT").innerHTML;
+            formattedConversation += 'assistant: ' + text + ' [' + time + ']\n';
         }
     });
 
-    console.log(formattedConversation);  // 打印格式化后的对话
+    // 添加总经过时间
+    const topbarLeft = document.getElementById('topbar-left');
+    if (topbarLeft) {
+        formattedConversation += '\n' + topbarLeft.innerHTML;
+    }
+
+    // 处理当前轮次的消息
+    if (currentRoundMessages.length > 0) {
+        currentRoundMessages.forEach(container => {
+            const time = container.querySelector(".time").innerHTML;
+            if (container.querySelector(".copy-msg-USER")) {
+                const text = container.querySelector(".copy-msg-USER").innerHTML;
+                currentConversation += 'user: ' + text + ' [' + time + ']\n';
+            } else if (container.querySelector(".copy-msg-GPT")) {
+                const text = container.querySelector(".copy-msg-GPT").innerHTML;
+                currentConversation += 'assistant: ' + text + ' [' + time + ']\n';
+            }
+        });
+
+        // 计算当前轮次对话时间
+        const startTime = convertTimeToSeconds(currentRoundMessages[0].querySelector(".time").innerHTML);
+        const endTime = convertTimeToSeconds(currentRoundMessages[currentRoundMessages.length - 1].querySelector(".time").innerHTML);
+        const duration = endTime - startTime;
+        const minutes = Math.floor(duration / 60);
+        const seconds = duration % 60;
+        currentConversation += `\n対話時間: ${minutes}分${seconds}秒\n`;
+
+        // 更新最后消息位置
+        lastMessageIndex = allContainers.length - 1;
+    }
+
+    var RoundChat = 'RoundChat_' + next_flag;
+    //Qualtrics.SurveyEngine.setEmbeddedData('allUserChat', formattedConversation);
+    //Qualtrics.SurveyEngine.setEmbeddedData(RoundChat, currentConversation);
+
+    console.log('All conversations:', formattedConversation);
+    console.log('Current round:', currentConversation);
+    console.log('RoundChat:', RoundChat);
+}
+
+function convertTimeToSeconds(timeString) {
+    const [hours, minutes, seconds] = timeString.split(':').map(Number);
+    return hours * 3600 + minutes * 60 + seconds;
 }
 
 const copy = document.getElementById("git_copy");
 copy.addEventListener("click",event => {
 
-    copyConversationToClipboard();
+    copyConversationToClipboard(next_flag);
 })
 
 //测试用字符串，正式删掉
