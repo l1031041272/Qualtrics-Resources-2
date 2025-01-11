@@ -11,7 +11,7 @@ Qualtrics.SurveyEngine.addOnload(function()
     this.hideNextButton();
 
     const position = {
-        boxWidth: 300,
+        boxWidth: 500,
         boxHeight: 700,
         modelScale: 0.13,
         modelX: 0,
@@ -168,6 +168,132 @@ Qualtrics.SurveyEngine.addOnReady(function()
         console.log(userChat);
     }
 
+
+    let lastMessageIndex = -1;  // 用于记录上次最后一条消息的位置
+    function copyConversationToClipboard_2(next_flag) {
+        const allContainers = Array.prototype.slice.call(document.querySelectorAll(".chat-user, .chat-gpt-msg"));
+        let formattedConversation = '';
+        let currentConversation = '';
+
+        // 获取当前主题
+        currentConversation += 'theme: ' + proposition[next_flag] + '\n\n';
+
+        // 获取当前轮次的消息
+        const currentRoundMessages = allContainers.filter((_, index) => {
+            return lastMessageIndex === -1 || index > lastMessageIndex;
+        });
+
+        // 保存所有对话记录
+        allContainers.forEach(container => {
+            const time = container.querySelector(".time").innerHTML;
+            if (container.querySelector(".copy-msg-USER")) {
+                const text = container.querySelector(".copy-msg-USER").innerHTML;
+                formattedConversation += 'user: ' + text + ' [' + time + ']\n';
+            } else if (container.querySelector(".copy-msg-GPT")) {
+                const text = container.querySelector(".copy-msg-GPT").innerHTML;
+                formattedConversation += 'assistant: ' + text + ' [' + time + ']\n';
+            }
+        });
+
+        // 添加总经过时间
+        const topbarLeft = document.getElementById('topbar-left');
+        if (topbarLeft) {
+            formattedConversation += '\n' + topbarLeft.innerHTML;
+        }
+
+        // 处理当前轮次的消息
+        if (currentRoundMessages.length > 0) {
+            currentRoundMessages.forEach(container => {
+                const time = container.querySelector(".time").innerHTML;
+                if (container.querySelector(".copy-msg-USER")) {
+                    const text = container.querySelector(".copy-msg-USER").innerHTML;
+                    currentConversation += 'user: ' + text + ' [' + time + ']\n';
+                } else if (container.querySelector(".copy-msg-GPT")) {
+                    const text = container.querySelector(".copy-msg-GPT").innerHTML;
+                    currentConversation += 'assistant: ' + text + ' [' + time + ']\n';
+                }
+            });
+
+            try {
+                // 获取第一条和最后一条消息的时间
+                const firstTimeElement = currentRoundMessages[0].querySelector(".time");
+                const lastTimeElement = currentRoundMessages[currentRoundMessages.length - 1].querySelector(".time");
+
+                if (!firstTimeElement || !lastTimeElement) {
+                    console.log('Time elements not found');
+                    currentConversation += '\n対話時間: 0分0秒\n';
+                    return;
+                }
+
+                const firstTime = firstTimeElement.innerHTML;
+                const lastTime = lastTimeElement.innerHTML;
+
+                // 调试信息
+                console.log('First message time:', firstTime);
+                console.log('Last message time:', lastTime);
+
+                // 将时间字符串转换为秒数
+                function timeToSeconds(timeStr) {
+                    if (!timeStr || timeStr.trim() === '') {
+                        console.log('Empty time string received');
+                        return 0;
+                    }
+                    try {
+                        const [hours, minutes, seconds] = timeStr.trim().split(':').map(Number);
+                        if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+                            console.log('Invalid time format:', timeStr);
+                            return 0;
+                        }
+                        const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+                        console.log(`Converting ${timeStr} to seconds: ${totalSeconds}`);
+                        return totalSeconds;
+                    } catch (error) {
+                        console.log('Error parsing time:', timeStr, error);
+                        return 0;
+                    }
+                }
+
+                const startSeconds = timeToSeconds(firstTime);
+                const endSeconds = timeToSeconds(lastTime);
+
+                console.log('Start seconds:', startSeconds);
+                console.log('End seconds:', endSeconds);
+
+                // 计算时间差（秒）
+                const totalSeconds = Math.abs(endSeconds - startSeconds); // 添加Math.abs确保正数
+
+                console.log('Total seconds:', totalSeconds);
+
+                // 转换为分和秒
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+
+                console.log('Calculated minutes:', minutes);
+                console.log('Calculated seconds:', seconds);
+
+                // 确保数字显示在字符串中
+                const formattedMinutes = String(minutes || 0);
+                const formattedSeconds = String(seconds || 0);
+
+                // 添加时间信息，确保使用formattedMinutes和formattedSeconds
+                currentConversation += `\n対話時間:`+ formattedMinutes + `分` + formattedSeconds + `秒\n`;
+            } catch (error) {
+                console.error('Error calculating time:', error);
+                currentConversation += '\n対話時間: 計算エラー\n';
+            }
+
+            // 更新最后消息位置
+            lastMessageIndex = allContainers.length - 1;
+        }
+
+        var RoundChat = 'RoundChat_' + next_flag;
+        Qualtrics.SurveyEngine.setEmbeddedData('userChat', formattedConversation);
+        Qualtrics.SurveyEngine.setEmbeddedData(RoundChat, currentConversation);
+        console.log('All conversations:', formattedConversation);
+        console.log('Current round:', currentConversation);
+        console.log('RoundChat:', RoundChat);
+    }
+
     /*添加聊天内容*/
 // 1. User Toggle
 
@@ -230,6 +356,8 @@ Qualtrics.SurveyEngine.addOnReady(function()
 
         next.style.visibility = 'hidden';     // 隐藏但保留空间
         next.style.pointerEvents = 'none';    // 禁止点击
+
+        copyConversationToClipboard_2(next_flag);
 
         next_flag = next_flag - 1;
 

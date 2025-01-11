@@ -13,7 +13,7 @@ const modelPath = "/Resources/AModel/AModel/amodel.model3.json";
 //550, 700, 0.15, 0, 500
 //300, 700, 0.13, 0, 300
 const position = {
-    boxWidth: 360,
+    boxWidth: 500,
     boxHeight: 700,
     modelScale: 0.13,
     modelX: 0,
@@ -106,10 +106,13 @@ const txt = document.querySelector('#txt');
 // btn.addEventListener('click', () => {
 //     indexLibrary.handleChat(3,'放射性廃棄物の長期管理が将来の世代に大きな負担を残す可能性が増す');
 // });
-
+let next_b_flag;
+let re_flag = 1;
+next_b_flag = re_flag;
+let  handleChat_flag;
 //按键发送
 btn?.addEventListener('click', () => {
-    if (!txt.value.trim()) {  // 检查输入是否为空
+    if (!txt.value.trim() || indexLibrary.checkReplyStatus() === 0) {  // 检查输入是否为空
         // 添加红色边框
         txt.style.border = '2px solid red';
 
@@ -123,10 +126,22 @@ btn?.addEventListener('click', () => {
 
     // 输入不为空时执行原有操作
     indexLibrary.handleChat(10, '雇用機会が創出される');
+    handleChat_flag = indexLibrary.checkReplyStatus();
 
-    if(next_flag > 0) {
+    console.log('next_b_flag',next_b_flag);
+    console.log('next_flag',next_flag);
+    console.log('handleChat_flag',handleChat_flag);
+
+
+    if(next_flag > -1 && next_b_flag === 0) {
+        console.log("显示了",next_b_flag,next_flag,handleChat_flag);
         next.style.visibility = 'visible';    // 显示按钮
         next.style.pointerEvents = 'auto';    // 允许点击
+    }
+    else if(indexLibrary.checkReplyStatus() === 1){
+        next_b_flag = next_b_flag - 1;
+        next.style.visibility = 'hidden';     // 隐藏但保留空间
+        next.style.pointerEvents = 'none';    // 禁止点击
     }
     else {
         next.style.visibility = 'hidden';     // 隐藏但保留空间
@@ -216,7 +231,7 @@ function copyConversationToClipboard(next_flag) {
     }
 
     var RoundChat = 'RoundChat_' + next_flag;
-    //Qualtrics.SurveyEngine.setEmbeddedData('allUserChat', formattedConversation);
+    //Qualtrics.SurveyEngine.setEmbeddedData('userChat', formattedConversation);
     //Qualtrics.SurveyEngine.setEmbeddedData(RoundChat, currentConversation);
 
     console.log('All conversations:', formattedConversation);
@@ -242,6 +257,7 @@ const next = document.getElementById("next1");
 next.style.visibility = 'hidden';     // 隐藏但保留空间
 next.style.pointerEvents = 'none';    // 禁止点击
 next.addEventListener("click",event => {
+    next_b_flag = re_flag;
 
     next.style.visibility = 'hidden';     // 隐藏但保留空间
     next.style.pointerEvents = 'none';    // 禁止点击

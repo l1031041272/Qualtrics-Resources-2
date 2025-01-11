@@ -22,7 +22,6 @@ export default class IndexLibrary {
     private app: App | null;
     private agent_point: number =0;
     private limit: number =0;
-
     constructor(debug: boolean, serverURL: string, modelPath: string, modelPosition: ModelPosition) {
         this.debug = debug;
         this.serverURL = serverURL;
@@ -93,8 +92,12 @@ export default class IndexLibrary {
     // chatgpt_reply = (promptIndex: number,proposition: string) => {//使用curl，curl只能进行简单对话
     //     this.app?.chatgpt_reply(promptIndex,proposition);
     // }
-    handleChat = (promptIndex: number,proposition: string) => {//保证GPT回复期间无法发送
-        this.app?.handleChat(promptIndex,proposition);
+    handleChat = (promptIndex: number,proposition: string): number => {//保证GPT回复期间无法发送
+        return this.app?.handleChat(promptIndex,proposition) ?? 0;;
+    }
+
+    checkReplyStatus = (): number => {//保证GPT回复期间无法发送
+        return this.app?.checkReplyStatus() ?? 0;;
     }
     // copyConversationToClipboard = (promptIndex: number,proposition: string) => () => {
     //     this.app?.copyConversationToClipboard(promptIndex,proposition);
