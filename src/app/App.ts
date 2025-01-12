@@ -644,9 +644,11 @@ Please respond in Japanese.`
         var lastParagraph = paragraphs[paragraphs.length - 1];
         lastParagraph.textContent = '';
 
+        //this.pixiCanvas?.hiyori.stopMotions();
         // 开始说话动作
         this.pixiCanvas?.hiyori.forceMotion("Happy", void 5);
         //this.pixiCanvas?.hiyori.forceMotion("All", void 3);
+
         let index = 0;
         const typeWriter = () => {
             if (index < chatgpt_response.length) {
@@ -664,7 +666,6 @@ Please respond in Japanese.`
                 isReplying = false;
             }
         };
-
 
             typeWriter();
 
@@ -841,6 +842,33 @@ Please respond in Japanese.`
         }
         return 1;     // 返回1表示可用
     }
+    //显示或隐藏下一个按钮
+    updateNextButtonVisibility = (status: number): void => {
+        const nextButton = document.querySelector('#next1');
+        if (!nextButton) {
+            console.error('Next button not found');
+            return;
+        }
+
+        // 将按钮元素转换为带有 style 属性的元素类型
+        const button = nextButton as HTMLButtonElement;
+
+        // 如果要隐藏按钮
+        if (status === 0) {
+            button.style.visibility = 'hidden';
+            button.style.pointerEvents = 'none';
+            return;
+        }
+
+        // 如果要显示按钮，先检查系统状态
+        if (this.checkReplyStatus() === 1) {
+            button.style.visibility = 'visible';
+            button.style.pointerEvents = 'auto';
+        } else {
+            // 系统繁忙，等待100ms后重试
+            setTimeout(() => this.updateNextButtonVisibility(1), 100);
+        }
+    };
     //尝试使用api进行assistant构建
     assistant_init = async (): Promise<void> => {
         //console.log(process.env.OPENAI_API_KEY);

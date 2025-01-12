@@ -112,7 +112,8 @@ next_b_flag = re_flag;
 let  handleChat_flag;
 //按键发送
 btn?.addEventListener('click', () => {
-    if (!txt.value.trim() || indexLibrary.checkReplyStatus() === 0) {  // 检查输入是否为空
+    handleChat_flag = indexLibrary.checkReplyStatus();
+    if (!txt.value.trim() || handleChat_flag === 0) {  // 检查输入是否为空
         // 添加红色边框
         txt.style.border = '2px solid red';
 
@@ -125,28 +126,39 @@ btn?.addEventListener('click', () => {
     }
 
     // 输入不为空时执行原有操作
+
+    indexLibrary.updateNextButtonVisibility(0);// 隐藏但保留空间// 禁止点击
+
     indexLibrary.handleChat(10, '雇用機会が創出される');
-    handleChat_flag = indexLibrary.checkReplyStatus();
+
 
     console.log('next_b_flag',next_b_flag);
     console.log('next_flag',next_flag);
     console.log('handleChat_flag',handleChat_flag);
 
-
     if(next_flag > -1 && next_b_flag === 0) {
         console.log("显示了",next_b_flag,next_flag,handleChat_flag);
-        next.style.visibility = 'visible';    // 显示按钮
-        next.style.pointerEvents = 'auto';    // 允许点击
+        indexLibrary.updateNextButtonVisibility(1);    // 显示按钮// 允许点击
     }
-    else if(indexLibrary.checkReplyStatus() === 1){
+    else{
         next_b_flag = next_b_flag - 1;
-        next.style.visibility = 'hidden';     // 隐藏但保留空间
-        next.style.pointerEvents = 'none';    // 禁止点击
+        indexLibrary.updateNextButtonVisibility(0);     // 隐藏但保留空间// 禁止点击
     }
-    else {
-        next.style.visibility = 'hidden';     // 隐藏但保留空间
-        next.style.pointerEvents = 'none';    // 禁止点击
-    }
+
+    // if(next_flag > -1 && next_b_flag === 0) {
+    //     console.log("显示了",next_b_flag,next_flag,handleChat_flag);
+    //     next.style.visibility = 'visible';    // 显示按钮
+    //     next.style.pointerEvents = 'auto';    // 允许点击
+    // }
+    // else if(handleChat_flag === 1){
+    //     next_b_flag = next_b_flag - 1;
+    //     next.style.visibility = 'hidden';     // 隐藏但保留空间
+    //     next.style.pointerEvents = 'none';    // 禁止点击
+    // }
+    // else {
+    //     next.style.visibility = 'hidden';     // 隐藏但保留空间
+    //     next.style.pointerEvents = 'none';    // 禁止点击
+    // }
 });
 //原来按键复制内容
 // function copyConversationToClipboard() {

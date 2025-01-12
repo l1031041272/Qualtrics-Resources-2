@@ -99,6 +99,9 @@ export default class IndexLibrary {
     checkReplyStatus = (): number => {//保证GPT回复期间无法发送
         return this.app?.checkReplyStatus() ?? 0;;
     }
+    updateNextButtonVisibility = (promptIndex: number): void => {//保证GPT回复期间无法发送
+        return this.app?.updateNextButtonVisibility(promptIndex);
+    }
     // copyConversationToClipboard = (promptIndex: number,proposition: string) => () => {
     //     this.app?.copyConversationToClipboard(promptIndex,proposition);
     // }

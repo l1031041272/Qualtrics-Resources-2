@@ -69,7 +69,7 @@ export class CustomModel extends EventEmitter {
 
     //モデル関係
     private modelPath: string; //model3.jsonの位置
-    private model: (PIXI.Sprite & PIXILive2D.Live2DModel) | null; //Live2DModelインスタンス
+    private  model: (PIXI.Sprite & PIXILive2D.Live2DModel) | null; //Live2DModelインスタンス
     private modelScaleX: number; //モデルの表示倍率
     private modelScaleY: number;
     //modelBox中心からどれだけずれるかxyで決める
