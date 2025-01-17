@@ -4,6 +4,10 @@ const modelPath = "https://cdn.jsdelivr.net/gh/l1031041272/Qualtrics-Resources-2
 let indexLibrary = null;
 let next_flag = 4;
 
+let next_b_flag;
+let re_flag = 2;
+let  handleChat_flag;
+
 
 Qualtrics.SurveyEngine.addOnload(function()
 {
@@ -60,6 +64,15 @@ Qualtrics.SurveyEngine.addOnload(function()
 Qualtrics.SurveyEngine.addOnReady(function()
 {
     /*ページが完全に表示されたときに実行するJavaScriptをここに配置してください*/
+    //下一个按钮标志值初始化
+    re_flag = re_flag - 1;
+    next_b_flag = re_flag;
+    var userGroups = Qualtrics.SurveyEngine.getEmbeddedData('userGroup');
+    var userGroup = Number(userGroups);  // 或者 parseInt(userGroupStr)
+    console.log("userGroup:", userGroup);
+
+    //1
+    if (userGroup === 1){
 
     // 埋め込みデータを取得
     var value1 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition1');
@@ -85,7 +98,116 @@ Qualtrics.SurveyEngine.addOnReady(function()
         want_userAttitude
     ];
 
-    console.log("userAttitude:", userAttitude);
+        console.log("userAttitude:", userAttitude);
+    }
+    //2
+    if (userGroup === 2){
+
+        // 埋め込みデータを取得
+        var value1 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition1');
+        var value2 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition2');
+        var value3 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions1');
+        var value4 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions2');
+
+        var proposition = [
+            value4 + "ことの社会への影響",
+            value3 + "ことの社会への影響",
+            value2 + "ことの自身への影響",
+            value1 + "ことの自身への影響"
+        ];
+        var should_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('should_userAttitude');
+        console.log("should_userAttitude:", should_userAttitude);
+        var want_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('want_userAttitude');
+        console.log("want_userAttitude:", want_userAttitude);
+
+        var userAttitude = [
+            4,
+            4,
+            4,
+            4
+
+        ];
+
+        console.log("userAttitude:", userAttitude);
+    }
+    //3
+    if (userGroup === 3){
+
+        var proposition = [
+            "好きな食べ物",
+            "好きなスポーツ",
+            "好きな本や漫画",
+            "旅行の思い出"
+        ];
+        var userAttitude = [
+            5,
+            5,
+            5,
+            5
+
+        ];
+    }
+    //4
+    if (userGroup === 4){
+
+        // 埋め込みデータを取得
+        var value1 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition1');
+        var value2 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition2');
+        var value3 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions1');
+        var value4 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions2');
+
+        var proposition = [
+            value4 + "ことの社会への影響",
+            value3 + "ことの社会への影響",
+            value2 + "ことの自身への影響",
+            value1 + "ことの自身への影響"
+        ];
+        var should_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('should_userAttitude');
+        console.log("should_userAttitude:", should_userAttitude);
+        var want_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('want_userAttitude');
+        console.log("want_userAttitude:", want_userAttitude);
+
+        var userAttitude = [
+            Number(should_userAttitude)+6,
+            Number(should_userAttitude)+6,
+            Number(want_userAttitude)+6,
+            Number(want_userAttitude)+6
+        ];
+
+        console.log("userAttitude:", userAttitude);
+    }
+    //5
+    if (userGroup === 5){
+
+        // 埋め込みデータを取得
+        var value1 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition1');
+        var value2 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition2');
+        var value3 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions1');
+        var value4 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions2');
+
+        var proposition = [
+            value4 + "ことの社会への影響",
+            value3 + "ことの社会への影響",
+            value2 + "ことの自身への影響",
+            value1 + "ことの自身への影響"
+        ];
+        var should_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('should_userAttitude');
+        console.log("should_userAttitude:", should_userAttitude);
+        var want_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('want_userAttitude');
+        console.log("want_userAttitude:", want_userAttitude);
+
+        var userAttitude = [
+            10,
+            10,
+            10,
+            10
+
+        ];
+
+        console.log("userAttitude:", userAttitude);
+    }
+
+
 
 //等该初始化页面
     const agentFlag = document.getElementById('agent_visible_flag');
@@ -320,7 +442,8 @@ Qualtrics.SurveyEngine.addOnReady(function()
 //按键发送
     if (btn) {
         btn.addEventListener('click', () => {
-            if (!txt.value.trim()) {  // 检查输入是否为空
+            handleChat_flag = indexLibrary.checkReplyStatus();
+            if (!txt.value.trim() || handleChat_flag === 0) {  // 检查输入是否为空
                 // 添加红色边框
                 txt.style.border = '2px solid red ';
 
@@ -332,18 +455,20 @@ Qualtrics.SurveyEngine.addOnReady(function()
                 return;  // 如果输入为空，不执行后续操作
             }
 
+            indexLibrary.updateNextButtonVisibility(0);// 隐藏但保留空间// 禁止点击
+
             // 输入不为空时执行原有操作
             indexLibrary.handleChat(userAttitude[next_flag], proposition[next_flag]);
             console.log('userAttitude',userAttitude[next_flag]);
             console.log('proposition',proposition[next_flag]);
 
-            if(next_flag > 0) {
-                next.style.visibility = 'visible';    // 显示按钮
-                next.style.pointerEvents = 'auto';    // 允许点击
+            if(next_flag > -1 && next_b_flag === 0) {
+                console.log("显示了",next_b_flag,next_flag,handleChat_flag);
+                indexLibrary.updateNextButtonVisibility(1);    // 显示按钮// 允许点击
             }
             else {
-                next.style.visibility = 'visible';    // 显示按钮
-                next.style.pointerEvents = 'auto';    // 允许点击
+                next_b_flag = next_b_flag - 1;
+                indexLibrary.updateNextButtonVisibility(0);     // 隐藏但保留空间// 禁止点击
             }
         });
     }
@@ -353,6 +478,8 @@ Qualtrics.SurveyEngine.addOnReady(function()
     next.style.visibility = 'hidden';     // 隐藏但保留空间
     next.style.pointerEvents = 'none';    // 禁止点击
     next.addEventListener("click",event => {
+
+        next_b_flag = re_flag;//初始化按键标志值
 
         next.style.visibility = 'hidden';     // 隐藏但保留空间
         next.style.pointerEvents = 'none';    // 禁止点击

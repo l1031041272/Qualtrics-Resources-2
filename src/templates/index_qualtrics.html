@@ -164,7 +164,7 @@
             background: var(--bg-wrap);
             border-radius: 5rem;
             padding: 1.5rem 2.5rem;
-            box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.05);
+            /*box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.05);*/
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
@@ -284,12 +284,14 @@
             display: flex;          /* 使用 flex 布局 */
             align-items: flex-start; /* 顶部对齐 */
             margin-bottom: 10px;    /* 消息间距 */
+            flex-direction: row-reverse;
         }
 
         .user-msg p {
             width: 100%;
             background: var(--white);
-            border-radius: 0 1.4rem 1.4rem 1.4rem;
+
+            border-radius: 1.4rem 0 1.4rem 1.4rem;
             font-size: 1.5rem;
             font-weight: 500;
             padding: 1rem;
@@ -302,6 +304,7 @@
             font-weight: 500;
             color: var(--grey);
             margin: 0.5rem 1.2rem;
+            float: right;
         }
 
         /* User 2 */
@@ -312,16 +315,17 @@
         .user2 .user-msg p {
             color: var(--white);
             background: var(--purple);
-            border-radius: 1.4rem 0 1.4rem 1.4rem;
+            border-radius: 0 1.4rem 1.4rem 1.4rem;
+            white-space: pre-line;
         }
 
         .user2 .user-msg .time {
-            float: right;
+            float: left;
         }
 
         .chat-user.user2 {
             display: flex;
-            flex-direction: row-reverse;
+
         }
 
         /* Chat Input Section */
@@ -332,6 +336,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-bottom: 15px;
         }
         /*
         .chat-input img {
@@ -381,7 +386,7 @@
             cursor: pointer;       /* 鼠标指针 */
             transition: 0.3s;      /* 过渡效果 */
             position: absolute;  /* 添加：绝对定位 */
-            bottom: 100px;       /* 添加：距底部100px */
+            bottom: 50px;       /* 添加：距底部100px */
             /*right: 10px;        /* 添加：距右侧10px */
         }
 
@@ -396,7 +401,7 @@
             width: 100%;
             gap: 20px;
             padding: 20px;
-            background-color: #cfcdd9;  /* 保持背景色一致 */
+            /*background-color: #cfcdd9;  /* 保持背景色一致 */
         }
         /* 左侧内容容器 */
         .left-content {
@@ -417,16 +422,27 @@
 
         /* 优化 Send 按钮样式 */
         .chat-input label {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: #6a5bc2;
             padding: 0.8rem 1.5rem;
             border-radius: 1.2rem;
             transition: all 0.3s ease;
+            width:70px;
+            height:50px;
+            background: #e8e1ff;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .chat-input label:hover {
             background: rgba(106, 91, 194, 0.1);
+        }
+        canvas#myCanvas {
+            width: 500px !important;  /* 你想要的宽度 */
         }
     </style>
 
@@ -496,9 +512,9 @@
                 </div>
                 <div class="chat-input">
 
-                    <input type="text" placeholder="メッセジー..." id="txt" />
+                    <input type="text" placeholder="メッセジー..." id="txt" autocomplete="off"/>
 
-                    <label for="txt" id="btn">Send</label>
+                    <label for="txt" id="btn">送信</label>
                 </div>
             </div>
         </div>

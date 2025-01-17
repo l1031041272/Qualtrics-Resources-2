@@ -129,7 +129,7 @@ btn?.addEventListener('click', () => {
 
     indexLibrary.updateNextButtonVisibility(0);// 隐藏但保留空间// 禁止点击
 
-    indexLibrary.handleChat(10, '雇用機会が創出される');
+    indexLibrary.handleChat(7, '雇用機会が創出されることの自身への影響');
 
 
     console.log('next_b_flag',next_b_flag);
