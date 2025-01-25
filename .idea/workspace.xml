@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.1.20 增加BLM">
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.1.23">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/qualtrics_chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/qualtrics_chat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +149,7 @@
       <workItem from="1723031955101" duration="2751000" />
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
-      <workItem from="1734276634373" duration="182251000" />
+      <workItem from="1734276634373" duration="187704000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -431,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1737341200962</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="2025.1.23">
+      <created>1737637339933</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1737637339933</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -449,7 +456,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="添加翔太文件夹，功能未添加。" />
     <MESSAGE value="包含翔太初始表情（不是面瘫了。我哭死）" />
     <MESSAGE value="放大了翔太的模型，并调整了模型产生的坐标250，250（孩子要饿死了）" />
     <MESSAGE value="增加了四个奇怪的表情" />
@@ -474,6 +480,7 @@
     <MESSAGE value="2025.1.12 增加说完话显示按钮的功能" />
     <MESSAGE value="2025.1.17 增加双路径说服" />
     <MESSAGE value="2025.1.20 增加BLM" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025.1.20 增加BLM" />
+    <MESSAGE value="2025.1.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025.1.23" />
   </component>
 </project>

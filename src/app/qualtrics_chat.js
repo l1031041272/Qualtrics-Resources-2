@@ -74,29 +74,29 @@ Qualtrics.SurveyEngine.addOnReady(function()
     //1
     if (userGroup === 1){
 
-    // 埋め込みデータを取得
-    var value1 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition1');
-    var value2 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition2');
-    var value3 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions1');
-    var value4 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions2');
+        // 埋め込みデータを取得
+        var value1 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition1');
+        var value2 = Qualtrics.SurveyEngine.getEmbeddedData('want_proposition2');
+        var value3 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions1');
+        var value4 = Qualtrics.SurveyEngine.getEmbeddedData('should_propositions2');
 
-    var proposition = [
-        value4 + "ことの社会への影響",
-        value3 + "ことの社会への影響",
-        value2 + "ことの自身への影響",
-        value1 + "ことの自身への影響"
-    ];
-    var should_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('should_userAttitude');
-    console.log("should_userAttitude:", should_userAttitude);
-    var want_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('want_userAttitude');
-    console.log("want_userAttitude:", want_userAttitude);
+        var proposition = [
+            value4 + "ことの社会への影響",
+            value3 + "ことの社会への影響",
+            value2 + "ことの自身への影響",
+            value1 + "ことの自身への影響"
+        ];
+        var should_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('should_userAttitude');
+        console.log("should_userAttitude:", should_userAttitude);
+        var want_userAttitude = Qualtrics.SurveyEngine.getEmbeddedData('want_userAttitude');
+        console.log("want_userAttitude:", want_userAttitude);
 
-    var userAttitude = [
-        should_userAttitude,
-        should_userAttitude,
-        want_userAttitude,
-        want_userAttitude
-    ];
+        var userAttitude = [
+            should_userAttitude,
+            should_userAttitude,
+            want_userAttitude,
+            want_userAttitude
+        ];
 
         console.log("userAttitude:", userAttitude);
     }

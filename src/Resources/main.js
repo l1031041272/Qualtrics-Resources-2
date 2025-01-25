@@ -129,7 +129,7 @@ btn?.addEventListener('click', () => {
 
     indexLibrary.updateNextButtonVisibility(0);// 隐藏但保留空间// 禁止点击
 
-    indexLibrary.handleChat(9, '雇用機会が創出されることの自身への影響');
+    indexLibrary.handleChat(7, 'テロリストの攻撃の標的となるリスクが高まる');
 
 
     console.log('next_b_flag',next_b_flag);
