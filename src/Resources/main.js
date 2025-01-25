@@ -129,7 +129,7 @@ btn?.addEventListener('click', () => {
 
     indexLibrary.updateNextButtonVisibility(0);// 隐藏但保留空间// 禁止点击
 
-    indexLibrary.handleChat(7, 'テロリストの攻撃の標的となるリスクが高まる');
+    indexLibrary.handleChat(5, '旅行');//テロリストの攻撃の標的となるリスクが高まる
 
 
     console.log('next_b_flag',next_b_flag);
