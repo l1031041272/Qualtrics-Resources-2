@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.1.25 优化提示">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/IndexLibrary.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +148,7 @@
       <workItem from="1723031955101" duration="2751000" />
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
-      <workItem from="1734276634373" duration="191704000" />
+      <workItem from="1734276634373" duration="195892000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -445,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1737777934088</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="2025.1.25 优化提示">
+      <created>1737805171908</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1737805171908</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

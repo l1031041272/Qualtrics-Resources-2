@@ -661,9 +661,12 @@ Please respond in Japanese.`
         </div>
     </div>`;
 
+
         const chats = document.querySelector('.chats')!;
         const chatPage = document.querySelector('.chat-page')!;
         chats.innerHTML += chatHtml;
+        console.log(chats.innerHTML);
+
 
         var paragraphs = document.querySelectorAll("p#chatgpt");
         var lastParagraph = paragraphs[paragraphs.length - 1];
@@ -762,6 +765,63 @@ Please respond in Japanese.`
             chatPage.scrollTop = chatPage.scrollHeight - chatPage.clientHeight;
         }console.log('sendMsg完成');
     };
+    backMsg_for_chatgpt_ready = (chatgpt_response: string): void => {
+        var imageURL = "https://rc1userv5pwvgnvtxbwj.au1.qualtrics.com/ControlPanel/Graphic.php?IM=IM_Mqrrh6SYwRplopC";
+        const currentTime_chat = new Date().toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+        });
+
+        chatgpt_response = "   ";
+        const chatHtml = `<div class="chat-user user2">
+        <div class="user-img">
+            <img src="${imageURL}" alt="" />
+        </div>
+        <div class="user-msg">
+            <p id="chatgpt" class="copy-msg-GPT"></p>
+            <span class="time">${currentTime_chat}</span>
+        </div>
+    </div>`;
+
+
+        const chats = document.querySelector('.chats')!;
+        const chatPage = document.querySelector('.chat-page')!;
+        chats.innerHTML += chatHtml;
+        console.log(chats.innerHTML);
+
+
+        var paragraphs = document.querySelectorAll("p#chatgpt");
+        var lastParagraph = paragraphs[paragraphs.length - 1];
+        lastParagraph.textContent = '';
+
+        //this.pixiCanvas?.hiyori.stopMotions();
+        // 开始说话动作
+        this.pixiCanvas?.hiyori.forceMotion("Happy", void 5);
+        //this.pixiCanvas?.hiyori.forceMotion("All", void 3);
+
+        let index = 0;
+        const typeWriter = () => {
+            if (index < chatgpt_response.length) {
+                this.pixiCanvas?.hiyori.setExpression("Happy_03");
+
+                lastParagraph.textContent += chatgpt_response.charAt(index);
+                index++;
+                chatPage.scrollTop = chatPage.scrollHeight;
+                setTimeout(typeWriter, 20);
+            } else {
+                // 文字输出完毕，恢复原来的动作
+                this.pixiCanvas?.hiyori.forceMotion("Idle", void 0);
+                this.pixiCanvas?.hiyori.setExpression("Happy_01");
+                console.log("进入");
+                isReplying = false;
+            }
+        };
+
+        typeWriter();
+
+    };
     chatgpt_ready = async (proposition: string): Promise<void> => {
         console.log("chatgpt初始化完成");
         isReplying = true;
@@ -772,11 +832,12 @@ Please respond in Japanese.`
                     "model": "gpt-3.5-turbo",
                     //"model": "gpt-4o",
                     "messages": [
-                        { "role": "system", "content": `The user is particularly concerned about [${proposition}] and wants to discuss this issue with you. Your goal is to greet the user and facilitate a smooth conversation.
-                                Special note: Language must be concise.
-                                Your language style should be like talking to a friend.
-                                Use appropriate emojis at the end. 😊
-                                Please respond in Japanese.` },
+                        { "role": "system", "content": `The user is highly concerned about [${proposition}] and wants to discuss this issue with you. Your task is to greet the user, restate in full the topic [${proposition}] that the user is currently concerned about, and facilitate a smooth conversation.
+You should also inform the user of the following information: 「画面右上に、現在の対話テーマと残りのテーマ数が表示されます．対話が十分だと感じたら「次へ」ボタンを押して、次のテーマに進んでください．」
+Special note: The language must be concise.
+Your language style should be like talking with a friend.
+Use appropriate emojis at the end. 😊
+Please respond in Japanese.` },
                         { "role": "user", "content": "こんにちは！" }
                     ]
                 },
@@ -792,12 +853,15 @@ Please respond in Japanese.`
             $("#response_text").val(chatgpt_response);
             this.backMsg(chatgpt_response);
 
-            var paragraphs = document.querySelectorAll("p#chatgpt");
-            var lastParagraph = paragraphs[paragraphs.length - 1];
-            lastParagraph.textContent = chatgpt_response;
-
-            console.log(lastParagraph);
-            console.log(chatgpt_response);
+            const chatPage = document.querySelector('.chat-page')!;
+            chatPage.scrollTop = chatPage.scrollHeight - chatPage.clientHeight;
+            // var paragraphs = document.querySelectorAll("p#chatgpt");
+            //
+            // var lastParagraph = paragraphs[paragraphs.length - 1];
+            // lastParagraph.textContent = chatgpt_response;
+            //
+            // console.log(lastParagraph);
+            // console.log(chatgpt_response);
         } catch (error) {
             console.log(error);
         }
