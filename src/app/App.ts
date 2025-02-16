@@ -561,7 +561,7 @@ Please respond in Japanese.`
             你的说话风格应当像朋友说话一样，避免使用敬语。结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
             只使用日语回答`,
 
-            `把用户当作朋友，请跟用户谈论[${proposition}]的话题吧。在谈论过程中可以分享你的喜好。如果你上一次的回答中每使用到疑问句进行互动后，这一次你的回答中只能使用陈述句句，你不能再进行提问互动；如果，你上一次回答中只使用了陈述句句，你这一次回答要酌情使用疑问句进行提问互动。你的说话风格应当像朋友说话一样，避免使用敬语。只使用英语回答。当用户使用其他语言时，也要使用英语回答。可以适当使用符合当下语境的emojis表情。`,
+            `把用户当作朋友，请跟用户谈论[${proposition}]的话题吧。在谈论过程中可以分享你的喜好。如果你上一次的回答中每使用到疑问句进行互动后，这一次你的回答中只能使用陈述句句，你不能再进行提问互动；如果，你上一次回答中只使用了陈述句句，你这一次回答要酌情使用疑问句进行提问互动。你的说话风格应当像朋友说话一样，避免使用敬语。只使用日语回答。当用户使用其他语言时，也要使用日语回答。可以适当使用符合当下语境的emojis表情。`,
 
             `The user is saying hello to you, say hello back!
             In this conversation, the user is particularly concerned about [${proposition}].
@@ -837,7 +837,7 @@ You should also inform the user of the following information: 「画面右上に
 Special note: The language must be concise.
 Your language style should be like talking with a friend.
 Use appropriate emojis at the end. 😊
-请用英语回答.` },
+Please respond in Japanese.` },
                         { "role": "user", "content": "こんにちは！" }
                     ]
                 },
@@ -880,7 +880,7 @@ Use appropriate emojis at the end. 😊
                                                                     特别注意：语言必须简洁。
                                                                     你的语言风格应该像和朋友交谈一样。
                                                                     在结尾使用适当的表情符号。😊
-                                                                    请用英语回答。` },
+                                                                    请用日语回答。` },
                         { "role": "user", "content": "こんにちは！" }
                     ]
                 },
