@@ -837,7 +837,7 @@ You should also inform the user of the following information: 「画面右上に
 Special note: The language must be concise.
 Your language style should be like talking with a friend.
 Use appropriate emojis at the end. 😊
-Please respond in ENGLISH.` },
+Please respond in Japanese.` },
                         { "role": "user", "content": "こんにちは！" }
                     ]
                 },
@@ -880,7 +880,7 @@ Please respond in ENGLISH.` },
                                                                     特别注意：语言必须简洁。
                                                                     你的语言风格应该像和朋友交谈一样。
                                                                     在结尾使用适当的表情符号。😊
-                                                                    请用日语回答。` },
+                                                                    请用英语回答。` },
                         { "role": "user", "content": "こんにちは！" }
                     ]
                 },
