@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.1.25 优化提示">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
-    </list>
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.2.17 测试" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +144,7 @@
       <workItem from="1723031955101" duration="2751000" />
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
-      <workItem from="1734276634373" duration="198713000" />
+      <workItem from="1734276634373" duration="199110000" />
     </task>
     <task id="LOCAL-00001" summary="第一次上传">
       <created>1674641570505</created>
@@ -457,7 +454,28 @@
       <option name="project" value="LOCAL" />
       <updated>1737812260312</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="2025.2.17 测试">
+      <created>1739718014571</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1739718014571</updated>
+    </task>
+    <task id="LOCAL-00046" summary="2025.2.17 测试">
+      <created>1739718180439</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1739718180439</updated>
+    </task>
+    <task id="LOCAL-00047" summary="2025.2.17 测试">
+      <created>1739718297669</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1739718297669</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +493,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="放大了翔太的模型，并调整了模型产生的坐标250，250（孩子要饿死了）" />
     <MESSAGE value="增加了四个奇怪的表情" />
     <MESSAGE value="实现了leave2D和chatgpt对用户的聊天功能" />
     <MESSAGE value="使用了旧的异步处理" />
@@ -500,6 +517,7 @@
     <MESSAGE value="2025.1.20 增加BLM" />
     <MESSAGE value="2025.1.23" />
     <MESSAGE value="2025.1.25 优化提示" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025.1.25 优化提示" />
+    <MESSAGE value="2025.2.17 测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025.2.17 测试" />
   </component>
 </project>

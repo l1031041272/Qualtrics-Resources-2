@@ -837,7 +837,7 @@ You should also inform the user of the following information: 「画面右上に
 Special note: The language must be concise.
 Your language style should be like talking with a friend.
 Use appropriate emojis at the end. 😊
-Please respond in Japanese.` },
+请用英语回答.` },
                         { "role": "user", "content": "こんにちは！" }
                     ]
                 },
