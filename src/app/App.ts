@@ -51,7 +51,7 @@ type MyModelSettings = {
 };
 
 const sysTime = document.querySelector('.topbar-left')!;
-const str1 = 'sk-proj-PgY0kWR3I8HCYvFz8LbYB1QTcr0bwIfOkbcPXwZWGWuw5kuObLBwmN2hEgxLEV_djGPnZD9d6NT3BlbkFJGFpwU-'// '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';//'sk-proj-PgY0kWR3I8HCYvFz8LbYB1QTcr0bwIfOkbcPXwZWGWuw5kuObLBwmN2hEgxLEV_djGPnZD9d6NT3BlbkFJGFpwU-';//
+const str1 = 'sk-proj-PgY0kWR3I8HCYvFz8LbYB1QTcr0bwIfOkbcPXwZWGWuw5kuObLBwmN2hEgxLEV_djGPnZD9d6NT3BlbkFJGFpwU-'// //'sk-proj-PgY0kWR3I8HCYvFz8LbYB1QTcr0bwIfOkbcPXwZWGWuw5kuObLBwmN2hEgxLEV_djGPnZD9d6NT3BlbkFJGFpwU-';//
 const API_KEY = str1;
 
 const openai = new OpenAI({
