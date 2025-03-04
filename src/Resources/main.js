@@ -277,7 +277,7 @@ next.addEventListener("click",event => {
     next_flag = next_flag - 1;
 
     if(next_flag > 0){
-        indexLibrary.chatgpt_next('事故発生時に壊滅的な影響を及ぼすリスクが高まる');
+        indexLibrary.chatgpt_init_2('事故発生時に壊滅的な影響を及ぼすリスクが高まる');
         console.log('12312312312',next_flag);
         updateTopbar("CDECDECDE",next_flag);
     }

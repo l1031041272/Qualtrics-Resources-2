@@ -841,7 +841,7 @@ Special note: The language must be concise.
 Your language style should be like talking with a friend.
 Use appropriate emojis at the end. 😊
 Please respond in Japanese.` },
-                        { "role": "user", "content": "こんにちは！" }
+                        { "role": "user", "content": "次は！" }
                     ]
                 },
                 {
@@ -879,12 +879,19 @@ Please respond in Japanese.` },
                     "model": "gpt-3.5-turbo",
                     //"model": "gpt-4o",
                     "messages": [
-                        {  "role": "system", "content": `跟用户说“次は「${proposition}」について話しましょう．”トピックは「${proposition}」のようにカギ括弧で囲って，太字にする．` },
-                        // 用户特别关注[${proposition}]这个话题，想和你讨论这个议题。你的任务是向用户打招呼并促进一个顺畅的对话，但不要直接对用户说“你想谈论[${proposition}]这个话题吧？”，可以说让我们谈论${proposition}吧。可以向用户抛出一个简单的问题。
+                        { "role": "system", "content": `The user is highly concerned about [${proposition}] and wants to discuss this issue with you. 
+                                                        Your task is to first say it word for word without leaving anything out: "次は「${proposition}」について話しましょう．" 
+                                                        You should adopt a neutral tone and inquire about the user’s thoughts and opinions on [${proposition}] to ensure and facilitate a smooth follow-up conversation. Your language must remain neutral and avoid personal biases.
+                                                        Special note: The language must be concise.
+                                                        Your language style should be like talking with a friend.
+                                                        Use appropriate emojis at the end. 😊
+                                                        Please respond in Japanese.
+                                                        ` },
+                        // {  "role": "system", "content": `用户特别关注[${proposition}]这个话题，想和你讨论这个议题。你的任务是向用户打招呼并促进一个顺畅的对话，但不要直接对用户说“你想谈论[${proposition}]这个话题吧？”，可以说让我们谈论${proposition}吧。可以向用户抛出一个简单的问题。
                         //                                             特别注意：语言必须简洁。
                         //                                             你的语言风格应该像和朋友交谈一样。
                         //                                             在结尾使用适当的表情符号。😊
-                        //                                             请用日语回答。` },
+                        //                                             请用日语回答。` },Then restate in full the topic [${proposition}] that the user is currently concerned about, and facilitate a smooth conversation.
                         { "role": "user", "content": "次は" }
                     ]
                 },
