@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.3.4 更改下一个的展示内容">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,14 +148,7 @@
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
       <workItem from="1734276634373" duration="203707000" />
-      <workItem from="1741062576032" duration="3241000" />
-    </task>
-    <task id="LOCAL-00002" summary="第一次上传">
-      <created>1674641815977</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1674641815977</updated>
+      <workItem from="1741062576032" duration="4250000" />
     </task>
     <task id="LOCAL-00003" summary="只剩下动作选择栏和按钮">
       <created>1674704097896</created>
@@ -492,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1741065131447</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="2025.3.4 更改下一个的展示内容">
+      <created>1741065904303</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1741065904303</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
