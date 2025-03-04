@@ -487,6 +487,11 @@ Qualtrics.SurveyEngine.addOnReady(function()
         copyConversationToClipboard_2(next_flag);
 
         next_flag = next_flag - 1;
+        if(next_flag == -1){
+            updateTopbar("読み込み中...",0);
+            copyConversationToClipboard();
+            this.clickNextButton();
+        }
 
         if(next_flag > 0){
             indexLibrary.chatgpt_init(proposition[next_flag]);
@@ -500,11 +505,7 @@ Qualtrics.SurveyEngine.addOnReady(function()
             updateTopbar(proposition[next_flag],next_flag);
             document.getElementById('next1').textContent = '会話終了';
 
-            if(next_flag == -1){
-                updateTopbar("読み込み中...",0);
-                copyConversationToClipboard();
-                this.clickNextButton();
-            }
+
         }
 
     })

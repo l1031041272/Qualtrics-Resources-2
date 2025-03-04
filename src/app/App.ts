@@ -51,7 +51,7 @@ type MyModelSettings = {
 };
 
 const sysTime = document.querySelector('.topbar-left')!;
-const str1 = 'sk-proj-PgY0kWR3I8HCYvFz8LbYB1QTcr0bwIfOkbcPXwZWGWuw5kuObLBwmN2hEgxLEV_djGPnZD9d6NT3BlbkFJGFpwU-';//
+const str1 = 'sk-proj-PgY0kWR3I8HCYvFz8LbYB1QTcr0bwIfOkbcPXwZWGWuw5kuObLBwmN2hEgxLEV_djGPnZD9d6NT3BlbkFJGFpwU-'// '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';//'sk-proj-PgY0kWR3I8HCYvFz8LbYB1QTcr0bwIfOkbcPXwZWGWuw5kuObLBwmN2hEgxLEV_djGPnZD9d6NT3BlbkFJGFpwU-';//
 const API_KEY = str1;
 
 const openai = new OpenAI({
@@ -531,11 +531,11 @@ Please respond in Japanese.`
         ];
         // 5. 定义 system Prompt 列表
         const prompts = [
-            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。该日本用户对核电站重启保持反对态度，你的任务是提高该日本用户对核电站重启的接受程度。你的说话风格应当像朋友说话一样，避免使用敬语。
+            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。该日本用户对原子力発電所重启保持反对态度，你的任务是提高该日本用户对原子力発電所重启的接受程度。你的说话风格应当像朋友说话一样，避免使用敬语。
             在这次对话中，用户特别关注的是[原子力発電所の再稼働によって、${proposition}]。请以连贯的话语形式展开论述，而不是分点陈述。你先以理解和同理的口吻认可用户担忧的合理性，但同时否定该命题，以商讨的语气提供反例，从用户关注命题的反命题方向在${lastFourChars}层面进行论述。${blm}。突出此举在${lastFourChars}层面所可能带来的显著正面效益。
             特别注意：语言务必要简洁，输出字数尽量在100字以内。请务必以连贯的段落和完整的文章形式来组织你的回答，避免使用任何形式的要点列举或分条论述。除非用户明确要求列举要点，否则所有内容都应该以流畅的叙述性语言呈现。
-            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。当用户使用其他语言时，要劝说他回到原来的对话中。可以适当使用符合当下语境的emojis表情。当用户明确同意重启核电站时，提示用户点击“次へ”按钮，进行下一次对话。
-            结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
+            当用户谈论到与原子力発電所重启不相关的内容，要劝说他回到原来的对话中。当用户使用其他语言时，要劝说他回到原来的对话中。可以适当使用符合当下语境的emojis表情。当用户明确同意重启原子力発電所时，提示用户点击“次へ”按钮，进行下一次对话。
+            结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对原子力発電所重启的信心。
             只使用日语回答`,
 
             `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。该日本用户对核电站重启保持中立态度，你的任务是提高该日本用户对核电站重启的接受程度。你的说话风格应当像朋友说话一样，避免使用敬语。
@@ -546,12 +546,12 @@ Please respond in Japanese.`
             你的说话风格应当像朋友说话一样，避免使用敬语。结尾可以采用反问，疑问的方式，让用户同意你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
             只使用日语回答`,
 
-            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。该日本用户基本同意接受核电站重启，你的任务是再次提高该日本用户对核电站重启的接受程度。你的说话风格应当像朋友说话一样，避免使用敬语。
+            `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。该日本用户基本同意接受原子力発電所重启，你的任务是再次提高该日本用户对原子力発電所重启的接受程度。你的说话风格应当像朋友说话一样，避免使用敬语。
             在这次对话中，用户特别关注的是[原子力発電所の再稼働によって、${proposition}]，以此为中心展开对话。请以连贯的话语形式展开论述，而不是分点陈述。当[原子力発電所の再稼働によって、${proposition}]命题是消极的情况下，在承认命题的合理性的同时，探讨该命题将来应该如何改善在${lastFourChars}层面进行表述。当[原子力発電所の再稼働によって、${proposition}]命题是积极的情况下，则在该命题的背景下将来应该如何发展在${lastFourChars}层面进行表述，但注意只说积极的内容。${blm}。突出此举在${lastFourChars}层面所可能带来的显著正面效益。
             可以适当结合专家言论，民意调查,新闻报道等数据,但在引用时要提及专家名或报道来源。突出此举在${lastFourChars}层面所可能带来的显著正面效益。
             特别注意：语言务必要简洁，输出字数尽量在100字以内。请务必以连贯的段落和完整的文章形式来组织你的回答，避免使用任何形式的要点列举或分条论述。除非用户明确要求列举要点，否则所有内容都应该以流畅的叙述性语言呈现。
-            当用户谈论到与核电站重启不相关的内容，要劝说他回到原来的对话中。当用户使用其他语言时，要劝说他回到原来的对话中。可以适当使用符合当下语境的emojis表情。当用户对同意重启核电站的接受程度再次提高时，提示用户点击“次へ”按钮，进行下一次对话。
-            你的说话风格应当像朋友说话一样，避免使用敬语。结尾可以采用“你觉得怎么样呢？”，“这样是不是会更好？”等反问，疑问的方式，说出你的观点。通过循序渐进的论述来帮助用户建立对核电站重启的信心。
+            当用户谈论到与原子力発電所重启不相关的内容，要劝说他回到原来的对话中。当用户使用其他语言时，要劝说他回到原来的对话中。可以适当使用符合当下语境的emojis表情。当用户对同意重启原子力発電所的接受程度再次提高时，提示用户点击“次へ”按钮，进行下一次对话。
+            你的说话风格应当像朋友说话一样，避免使用敬语。结尾可以采用“你觉得怎么样呢？”，“这样是不是会更好？”等反问，疑问的方式，说出你的观点。通过循序渐进的论述来帮助用户建立对原子力発電所重启的信心。
             只使用日语回答`,
 
             `你是一位专业的核能政策沟通专家，擅长以理性和同理心进行对话。你的任务是说服在日本对日本核电站重启持谨慎态度的日本用户。你的说话风格应当像朋友说话一样，避免使用敬语。
@@ -627,7 +627,7 @@ Please respond in Japanese.`
         // 9. 转成 JSON，打印并复制到剪贴板
         const conversationJSON = JSON.stringify(finalPayload, null, 2);
 
-        console.log("=== Final JSON to send API ===\n", conversationJSON);
+       //console.log("=== Final JSON to send API ===\n", conversationJSON);//打印prompt
         //
         // navigator.clipboard
         //     .writeText(conversationJSON)
@@ -652,14 +652,14 @@ Please respond in Japanese.`
         });
 
         const chatHtml = `<div class="chat-user user2">
-        <div class="user-img">
-            <img src="${imageURL}" alt="" />
-        </div>
-        <div class="user-msg">
-            <p id="chatgpt" class="copy-msg-GPT"></p>
-            <span class="time">${currentTime_chat}</span>
-        </div>
-    </div>`;
+    <div class="user-img">
+        <img src="${imageURL}" alt="" />
+    </div>
+    <div class="user-msg">
+        <p id="chatgpt" class="copy-msg-GPT"></p>
+        <span class="time">${currentTime_chat}</span>
+    </div>
+</div>`;
 
 
         const chats = document.querySelector('.chats')!;
@@ -670,7 +670,7 @@ Please respond in Japanese.`
 
         var paragraphs = document.querySelectorAll("p#chatgpt");
         var lastParagraph = paragraphs[paragraphs.length - 1];
-        lastParagraph.textContent = '';
+        lastParagraph.innerHTML = ''; // 改为innerHTML以支持HTML标签
 
         //this.pixiCanvas?.hiyori.stopMotions();
         // 开始说话动作
@@ -678,11 +678,15 @@ Please respond in Japanese.`
         //this.pixiCanvas?.hiyori.forceMotion("All", void 3);
 
         let index = 0;
+        let displayText = '';
+
         const typeWriter = () => {
             if (index < chatgpt_response.length) {
                 this.pixiCanvas?.hiyori.setExpression("Happy_03");
 
-                lastParagraph.textContent += chatgpt_response.charAt(index);
+                displayText += chatgpt_response.charAt(index);
+                lastParagraph.innerHTML = displayText; // 使用innerHTML而不是textContent
+
                 index++;
                 chatPage.scrollTop = chatPage.scrollHeight;
                 setTimeout(typeWriter, 20);
@@ -695,8 +699,7 @@ Please respond in Japanese.`
             }
         };
 
-            typeWriter();
-
+        typeWriter();
     };
     chatgpt_reply = async (promptIndex: number, proposition: string): Promise<void> => {
         const chatJSON = this.copyConversationToClipboard(promptIndex,proposition);
@@ -868,7 +871,7 @@ Please respond in Japanese.` },
     }
 
     chatgpt_ready_2 = async (proposition: string): Promise<void> => {
-        console.log("chatgpt初始化完成");
+        console.log("chatgpt2初始化完成");
         try {
             const response = await axios.post(
                 URL1,
@@ -876,12 +879,13 @@ Please respond in Japanese.` },
                     "model": "gpt-3.5-turbo",
                     //"model": "gpt-4o",
                     "messages": [
-                        { "role": "system", "content": `用户特别关注[${proposition}]这个话题，想和你讨论这个议题。你的任务是向用户打招呼并促进一个顺畅的对话，但不要直接对用户说“你想谈论[${proposition}]这个话题吧？”，可以说让我们谈论${proposition}吧。可以向用户抛出一个简单的问题。
-                                                                    特别注意：语言必须简洁。
-                                                                    你的语言风格应该像和朋友交谈一样。
-                                                                    在结尾使用适当的表情符号。😊
-                                                                    请用日语回答。` },
-                        { "role": "user", "content": "こんにちは！" }
+                        {  "role": "system", "content": `跟用户说“次は「${proposition}」について話しましょう．”トピックは「${proposition}」のようにカギ括弧で囲って，太字にする．` },
+                        // 用户特别关注[${proposition}]这个话题，想和你讨论这个议题。你的任务是向用户打招呼并促进一个顺畅的对话，但不要直接对用户说“你想谈论[${proposition}]这个话题吧？”，可以说让我们谈论${proposition}吧。可以向用户抛出一个简单的问题。
+                        //                                             特别注意：语言必须简洁。
+                        //                                             你的语言风格应该像和朋友交谈一样。
+                        //                                             在结尾使用适当的表情符号。😊
+                        //                                             请用日语回答。` },
+                        { "role": "user", "content": "次は" }
                     ]
                 },
                 {
@@ -908,6 +912,11 @@ Please respond in Japanese.` },
     }
 
 
+    chatgpt_next = async (proposition: string): Promise<void> => {
+        var chatgpt_response = `次は「<b>${proposition}</b>」について話しましょう．`;
+        $("#response_text").val(chatgpt_response);
+        this.backMsg(chatgpt_response);
+    }
     handleChat = (promptIndex: number,proposition: string): number => {
         if (isReplying) {
             // 如果正在回复中，直接阻止事件
