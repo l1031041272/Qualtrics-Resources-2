@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.3.4 更改下一个的展示内容">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,21 +149,7 @@
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
       <workItem from="1734276634373" duration="203707000" />
-      <workItem from="1741062576032" duration="10821000" />
-    </task>
-    <task id="LOCAL-00005" summary="只剩下动作选择栏和按钮">
-      <created>1674705519970</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1674705519970</updated>
-    </task>
-    <task id="LOCAL-00006" summary="真·只剩下动作选择栏和按钮">
-      <created>1674707058119</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1674707058119</updated>
+      <workItem from="1741062576032" duration="11376000" />
     </task>
     <task id="LOCAL-00007" summary="添加翔太文件夹，功能未添加。">
       <created>1675046800843</created>
@@ -496,7 +480,21 @@
       <option name="project" value="LOCAL" />
       <updated>1741067139921</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="2025.3.4 更改下一个的展示内容">
+      <created>1741086006213</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1741086006213</updated>
+    </task>
+    <task id="LOCAL-00055" summary="2025.3.4 更改下一个的展示内容">
+      <created>1741086156440</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1741086156440</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
