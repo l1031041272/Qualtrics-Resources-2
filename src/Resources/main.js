@@ -129,7 +129,7 @@ btn?.addEventListener('click', () => {
 
     indexLibrary.updateNextButtonVisibility(0);// 隐藏但保留空间// 禁止点击
 
-    indexLibrary.handleChat(5, '旅行');//テロリストの攻撃の標的となるリスクが高まる
+    indexLibrary.handleChat(9, 'Development of next-generation nuclear power technology will be promoted advancing Japanことの社会への影響');//テロリストの攻撃の標的となるリスクが高まる
 
 
     console.log('next_b_flag',next_b_flag);

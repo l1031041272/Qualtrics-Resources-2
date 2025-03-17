@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.3.4 更改下一个的展示内容">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Resources/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,21 +154,7 @@
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
       <workItem from="1734276634373" duration="203707000" />
-      <workItem from="1741062576032" duration="11376000" />
-    </task>
-    <task id="LOCAL-00007" summary="添加翔太文件夹，功能未添加。">
-      <created>1675046800843</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1675046800843</updated>
-    </task>
-    <task id="LOCAL-00008" summary="添加翔太文件夹，功能未添加。">
-      <created>1675052831110</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1675052831110</updated>
+      <workItem from="1741062576032" duration="22644000" />
     </task>
     <task id="LOCAL-00009" summary="添加翔太文件夹，功能未添加。">
       <created>1675053007618</created>
@@ -494,7 +485,21 @@
       <option name="project" value="LOCAL" />
       <updated>1741086156440</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="2025.3.4 更改下一个的展示内容">
+      <created>1741086510246</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1741086510246</updated>
+    </task>
+    <task id="LOCAL-00057" summary="2025.3.4 更改下一个的展示内容">
+      <created>1741091333827</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1741091333827</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
