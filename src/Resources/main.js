@@ -62,8 +62,8 @@ startButton?.addEventListener('click', function() {
     next_flag = next_flag - 1;
     if (overlay) overlay.style.display = 'none';
     if (overlayWindow) overlayWindow.style.display = 'none';
-    indexLibrary.chatgpt_init('原子力発電所の再稼働によって、事故発生時に壊滅的な影響を及ぼすリスクが高まる');
-    updateTopbar("ABCABCABC",next_flag);
+    indexLibrary.chatgpt_init('完全自動運転車の社会導入によって、電波圏外では安全走行が困難になる');
+    updateTopbar("完全自動運転車の社会導入によって、電波圏外では安全走行が困難になる完全自動運転車の社会導入によって、電波圏外では安全走行が困難になる",next_flag);
 });
 
 //--- cubism SDK 初期化
@@ -129,7 +129,7 @@ btn?.addEventListener('click', () => {
 
     indexLibrary.updateNextButtonVisibility(0);// 隐藏但保留空间// 禁止点击
 
-    indexLibrary.handleChat(9, 'Development of next-generation nuclear power technology will be promoted advancing Japanことの社会への影響');//テロリストの攻撃の標的となるリスクが高まる
+    indexLibrary.handleChat(3, '電波圏外では安全走行が困難になることの社会への影響');//テロリストの攻撃の標的となるリスクが高まる
 
 
     console.log('next_b_flag',next_b_flag);

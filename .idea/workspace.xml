@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.3.4 更改下一个的展示内容">
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.3.17 加上了EN版">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/Resources/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/IndexLibrary3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
     </list>
@@ -58,24 +55,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/code/project/js/Qualtrics-Resources-2/dist/js",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "D:\\code\\project\\js\\Qualtrics-Resources-2\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/code/project/js/Qualtrics-Resources-2/dist/js&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\code\\project\\js\\Qualtrics-Resources-2\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\code\project\js\Qualtrics-Resources-2\dist\js" />
@@ -154,14 +151,8 @@
       <workItem from="1723034768235" duration="5768000" />
       <workItem from="1723040670717" duration="1174000" />
       <workItem from="1734276634373" duration="203707000" />
-      <workItem from="1741062576032" duration="22644000" />
-    </task>
-    <task id="LOCAL-00009" summary="添加翔太文件夹，功能未添加。">
-      <created>1675053007618</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1675053007618</updated>
+      <workItem from="1741062576032" duration="28831000" />
+      <workItem from="1761028144678" duration="7606000" />
     </task>
     <task id="LOCAL-00010" summary="添加翔太文件夹，功能未添加。">
       <created>1675053796190</created>
@@ -499,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1741091333827</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="2025.3.17 加上了EN版">
+      <created>1742184722207</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1742184722207</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,7 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="使用了旧的异步处理" />
     <MESSAGE value="将功能添加到APP中，不再使用main实现功能" />
     <MESSAGE value="打包--将功能添加到APP中，不再使用main实现功能" />
     <MESSAGE value="将聊天框css重新设置就，更改了比例" />
@@ -542,6 +539,7 @@
     <MESSAGE value="2025.2.17 测试" />
     <MESSAGE value="2025.2.17 无变动" />
     <MESSAGE value="2025.3.4 更改下一个的展示内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025.3.4 更改下一个的展示内容" />
+    <MESSAGE value="2025.3.17 加上了EN版" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025.3.17 加上了EN版" />
   </component>
 </project>
