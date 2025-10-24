@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.3.17 加上了EN版">
+    <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.10.23 增加了自动驾驶相关prompt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,14 +149,7 @@
       <workItem from="1723040670717" duration="1174000" />
       <workItem from="1734276634373" duration="203707000" />
       <workItem from="1741062576032" duration="28831000" />
-      <workItem from="1761028144678" duration="7606000" />
-    </task>
-    <task id="LOCAL-00010" summary="添加翔太文件夹，功能未添加。">
-      <created>1675053796190</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1675053796190</updated>
+      <workItem from="1761028144678" duration="9136000" />
     </task>
     <task id="LOCAL-00011" summary="包含翔太初始表情（不是面瘫了。我哭死）">
       <created>1675242618449</created>
@@ -497,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1742184722207</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="2025.10.23 增加了自动驾驶相关prompt">
+      <created>1761180648427</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1761180648427</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +512,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="将功能添加到APP中，不再使用main实现功能" />
     <MESSAGE value="打包--将功能添加到APP中，不再使用main实现功能" />
     <MESSAGE value="将聊天框css重新设置就，更改了比例" />
     <MESSAGE value="2024.4.16从新编译了工程，将live2D比例重新设定" />
@@ -540,6 +536,7 @@
     <MESSAGE value="2025.2.17 无变动" />
     <MESSAGE value="2025.3.4 更改下一个的展示内容" />
     <MESSAGE value="2025.3.17 加上了EN版" />
-    <option name="LAST_COMMIT_MESSAGE" value="2025.3.17 加上了EN版" />
+    <MESSAGE value="2025.10.23 增加了自动驾驶相关prompt" />
+    <option name="LAST_COMMIT_MESSAGE" value="2025.10.23 增加了自动驾驶相关prompt" />
   </component>
 </project>
