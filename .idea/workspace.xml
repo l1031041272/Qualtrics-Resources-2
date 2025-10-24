@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd6334a2-42e8-41f3-95bd-ef350f111fbb" name="Changes" comment="2025.10.23 增加了自动驾驶相关prompt">
+      <change afterPath="$PROJECT_DIR$/dist/Resources/AModel/AModel/AModel.8192/user1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/Resources/AModel/AModel/AModel.8192/user2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/Resources/main备份.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/js/IndexLibrary.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/js/IndexLibrary.js.LICENSE.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,14 +154,7 @@
       <workItem from="1723040670717" duration="1174000" />
       <workItem from="1734276634373" duration="203707000" />
       <workItem from="1741062576032" duration="28831000" />
-      <workItem from="1761028144678" duration="9136000" />
-    </task>
-    <task id="LOCAL-00011" summary="包含翔太初始表情（不是面瘫了。我哭死）">
-      <created>1675242618449</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1675242618449</updated>
+      <workItem from="1761028144678" duration="10443000" />
     </task>
     <task id="LOCAL-00012" summary="放大了翔太的模型，并调整了模型产生的坐标250，250（孩子要饿死了）">
       <created>1675243432634</created>
@@ -494,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1761180648427</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="2025.10.23 增加了自动驾驶相关prompt">
+      <created>1761317845153</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1761317845153</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
